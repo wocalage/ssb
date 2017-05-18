@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string-array name="question_list">
+        <item>嘻嘻-true</item>
+        <item>哈哈-false</item>
+        <item>呵呵-true</item>
+    </string-array>
+
+</resources>
