@@ -1,12 +1,9 @@
-package com.example.administrator.myapplication;
+package com.wocalage.ssb.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 

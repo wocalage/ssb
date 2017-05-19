@@ -1,4 +1,4 @@
-package com.example.administrator.myapplication;
+package com.wocalage.ssb.Activity;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
