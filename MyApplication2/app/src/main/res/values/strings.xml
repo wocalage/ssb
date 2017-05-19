@@ -4,6 +4,23 @@
         <item>嘻嘻-true</item>
         <item>哈哈-false</item>
         <item>呵呵-true</item>
+        <item>呵呵-true</item>
+        <item>呵呵-true</item>
+        <item>呵呵-true</item>
+        <item>呵呵-true</item>
+        <item>呵呵-true</item>
+        <item>呵呵-true</item>
+        <item>呵呵-true</item>
     </string-array>
+
+    /****************通用***************/
+    <string name="exit_app_tips">请再按一次退出应用</string>
+
+    /****************loading界面*******************/
+    <string name="loading_title_start_tips">一共十个问题，你准备好了吗?</string>
+    <string name="loading_title_end_tips">欢迎来到傻逼联盟!</string>
+    <string name="loading_title_fail_tips">对不起，您不适合本应用</string>
+    <string name="loading_content_fail_tips">请将本应用卸载</string>
+
 
 </resources>

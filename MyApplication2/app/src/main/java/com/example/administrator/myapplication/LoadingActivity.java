@@ -18,8 +18,8 @@ public class LoadingActivity extends Activity {
 
     private int mQuestionNum;
     private boolean mQuestionAnswer;
-    private String[] mQuestionList = new String[3];
-    private boolean[] mAnswerList = new boolean[3];
+    private String[] mQuestionList = new String[10];
+    private boolean[] mAnswerList = new boolean[10];
     private TextView mTitle;
     private TextView mContent;
     private CheckBox mTrueBox, mFalseBox;
@@ -41,7 +41,7 @@ public class LoadingActivity extends Activity {
         mFalseBox = (CheckBox) findViewById(R.id.ssb_loading_false);
 
         initQuestionList();
-        setTitle("一共十个问题，你准备好了吗?");
+        setTitle(getResources().getString(R.string.loading_title_start_tips));
         setContent("");
     }
 
@@ -81,7 +81,7 @@ public class LoadingActivity extends Activity {
             if (mQuestionNum > mQuestionList.length){
                 //答完题了，进入主页面
                 ActivityManager.removeActivity(this);
-                setContent("欢迎来到傻逼联盟!");
+                setContent(getResources().getString(R.string.loading_title_end_tips));
                 mTrueBox.setVisibility(View.GONE);
                 mFalseBox.setVisibility(View.GONE);
             }else{
@@ -92,8 +92,8 @@ public class LoadingActivity extends Activity {
             }
         }else{
             //答错，再见
-            setTitle("对不起，您不适合本应用");
-            setContent("请将本应用卸载");
+            setTitle(getResources().getString(R.string.loading_title_fail_tips));
+            setContent(getResources().getString(R.string.loading_content_fail_tips));
             mTrueBox.setVisibility(View.GONE);
             mFalseBox.setVisibility(View.GONE);
         }
@@ -111,7 +111,7 @@ public class LoadingActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             if ((System.currentTimeMillis() - mExitTime) > 2000){
-                Toast.makeText(this,"请再按一次退出应用",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,getResources().getString(R.string.exit_app_tips),Toast.LENGTH_SHORT).show();
                 mExitTime = System.currentTimeMillis();
             }else{
                 ActivityManager.finishAllActivity();
