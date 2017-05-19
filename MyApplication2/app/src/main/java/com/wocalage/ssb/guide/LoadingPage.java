@@ -1,4 +1,4 @@
-package com.wocalage.ssb.Activity;
+package com.wocalage.ssb.guide;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,15 +9,17 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wocalage.ssb.util.ActivityManager;
+import com.wocalage.ssb.main.R;
+
 /**
  * Created by Jiaojian on 2017/5/18.
  * 加载界面
  */
 
-public class LoadingActivity extends Activity {
+public class LoadingPage extends Activity {
 
     private int mQuestionNum;
-    private boolean mQuestionAnswer;
     private String[] mQuestionList = new String[10];
     private boolean[] mAnswerList = new boolean[10];
     private TextView mTitle;

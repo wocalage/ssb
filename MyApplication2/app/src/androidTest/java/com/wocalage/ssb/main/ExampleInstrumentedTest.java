@@ -1,4 +1,4 @@
-package com.wocalage.ssb.Activity;
+package com.wocalage.ssb.main;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

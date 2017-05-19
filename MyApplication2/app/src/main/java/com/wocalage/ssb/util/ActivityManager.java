@@ -1,4 +1,4 @@
-package com.wocalage.ssb.Activity;
+package com.wocalage.ssb.util;
 
 import android.app.Activity;
 

@@ -1,11 +1,14 @@
-package com.wocalage.ssb.Activity;
+package com.wocalage.ssb.main;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.wocalage.ssb.guide.LoadingPage;
+import com.wocalage.ssb.util.ActivityManager;
+
+public class Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("sp_demo",MODE_PRIVATE);
         boolean isFirstInit = sp.getBoolean("isFirstIn",true);
         if (isFirstInit){
-            Intent intent = new Intent(this,LoadingActivity.class);
+            Intent intent = new Intent(this,LoadingPage.class);
             SharedPreferences.Editor editor = sp.edit();
             editor.putBoolean("isFirstIn",false);
             editor.commit();
             startActivity(intent);
         }else{
-
+            
         }
     }
 }
