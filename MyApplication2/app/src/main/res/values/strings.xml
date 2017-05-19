@@ -22,5 +22,8 @@
     <string name="loading_title_fail_tips">对不起，您不适合本应用</string>
     <string name="loading_content_fail_tips">请将本应用卸载</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
