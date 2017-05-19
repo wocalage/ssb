@@ -60,9 +60,11 @@ public class Main extends FragmentActivity implements View.OnClickListener {
         mBtRank = (RelativeLayout) findViewById(R.id.ssb_main_bottom_rank);
 
         mPageList = new ArrayList<>();
-        mPageList.add(new HomePage());
         mPageList.add(new RankPage());
+        mPageList.add(new HomePage());
 
+        //初始化选择rank
+        setTabSelected(0);
     }
 
     private void initEvent(){
