@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.wocalage.ssb.config.Config;
 import com.wocalage.ssb.guide.LoadingPage;
 import com.wocalage.ssb.homepage.HomePage;
 import com.wocalage.ssb.rank.RankPage;
@@ -40,18 +41,28 @@ public class Main extends FragmentActivity implements View.OnClickListener {
     }
 
     private void init(){
-        SharedPreferences sp = getSharedPreferences("sp_demo",MODE_PRIVATE);
-        boolean isFirstInit = sp.getBoolean("isFirstIn",true);
+        SharedPreferences sp = getSharedPreferences(Config.SP_FILE_NAME,MODE_PRIVATE);
+        boolean isFirstInit = sp.getBoolean(Config.IS_FIRST_INIT,true);
         if (isFirstInit){
             Intent intent = new Intent(this,LoadingPage.class);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putBoolean("isFirstIn",false);
-            editor.commit();
-            startActivity(intent);
+            startActivityForResult(intent,Config.START_LOADING_REQUEST_KEY);
         }else{
             initView();
             initEvent();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == Config.START_LOADING_REQUEST_KEY && resultCode == Config.START_LOADING_RESULT_KEY){
+            SharedPreferences sp = getSharedPreferences(Config.SP_FILE_NAME,MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean(Config.IS_FIRST_INIT,false);
+            editor.commit();
+            initView();
+            initEvent();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void initView(){
