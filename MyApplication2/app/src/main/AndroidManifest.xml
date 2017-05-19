@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.wocalage.ssb.main.com.wocalage.ssb.guide.LoadingActivity"
+            android:name="com.wocalage.ssb.guide.LoadingPage"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
