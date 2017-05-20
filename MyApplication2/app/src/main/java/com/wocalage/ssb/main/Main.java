@@ -21,6 +21,7 @@ import com.wocalage.ssb.guide.LoadingPage;
 import com.wocalage.ssb.homepage.HomePage;
 import com.wocalage.ssb.rank.RankPage;
 import com.wocalage.ssb.util.ActivityManager;
+import com.wocalage.ssb.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,6 @@ import java.util.List;
  */
 public class Main extends FragmentActivity implements View.OnClickListener {
 
-    private static final String TAG = "Main";
     private ViewPager mVPContainer;
     private RelativeLayout mBtRank,mBtHome;
     private FragmentPagerAdapter mVPAdapter;
@@ -138,7 +138,7 @@ public class Main extends FragmentActivity implements View.OnClickListener {
             mBtRank.setSelected(false);
             mBtHome.setSelected(true);
         }else{
-            Log.d(TAG,"fuck you !");
+            LogUtil.d(this,"fuck you !");
         }
     }
 }

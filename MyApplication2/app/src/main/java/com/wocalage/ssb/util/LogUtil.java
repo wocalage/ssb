@@ -12,6 +12,7 @@ public class LogUtil {
     private static boolean isDebug = true;
     private static final String TAG = "ssb";
 
+    //通用应用tag
     public static void i(String msg)
     {
         if (isDebug)
@@ -36,27 +37,28 @@ public class LogUtil {
             Log.v(TAG, msg);
     }
 
-    public static void i(Object tag, String msg)
+    //类名为tag
+    public static void i(Object object, String msg)
     {
         if (isDebug)
-            Log.i(tag.getClass().getSimpleName(), msg);
+            Log.i(object.getClass().getSimpleName(), msg);
     }
 
-    public static void d(String tag, String msg)
+    public static void d(Object object, String msg)
     {
         if (isDebug)
-            Log.i(tag, msg);
+            Log.i(object.getClass().getSimpleName(), msg);
     }
 
-    public static void e(String tag, String msg)
+    public static void e(Object object, String msg)
     {
         if (isDebug)
-            Log.i(tag, msg);
+            Log.i(object.getClass().getSimpleName(), msg);
     }
 
-    public static void v(String tag, String msg)
+    public static void v(Object object, String msg)
     {
         if (isDebug)
-            Log.i(tag, msg);
+            Log.i(object.getClass().getSimpleName(), msg);
     }
 }
