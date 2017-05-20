@@ -25,6 +25,10 @@ import com.wocalage.ssb.util.ActivityManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by jiaojian on 2017-5-18.
+ * main page
+ */
 public class Main extends FragmentActivity implements View.OnClickListener {
 
     private static final String TAG = "Main";

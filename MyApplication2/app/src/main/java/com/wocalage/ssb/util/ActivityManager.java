@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by jiaojian on 2017/5/18.
+ * activity manager for control activity
  */
 
 public class ActivityManager {

@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">My Application</string>
     <string-array name="question_list">
-        <item>嘻嘻-true</item>
-        <item>哈哈-false</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
-        <item>呵呵-true</item>
+        <item>你吃饭了吗-true</item>
+        <item>你刷牙了吗-true</item>
+        <item>你穿衣了吗-true</item>
+        <item>你充钱了吗-true</item>
+        <item>你看书了吗-true</item>
+        <item>你吃屎了吗-true</item>
+        <item>你无敌了吗-true</item>
+        <item>你拉屎了吗-true</item>
+        <item>你还在答题-true</item>
+        <item>你是傻逼吗-true</item>
     </string-array>
 
     /****************通用***************/

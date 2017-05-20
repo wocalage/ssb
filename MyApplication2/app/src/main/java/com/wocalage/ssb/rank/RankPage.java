@@ -10,6 +10,7 @@ import com.wocalage.ssb.main.R;
 
 /**
  * Created by jiaojian on 2017/5/19.
+ * rank page
  */
 
 public class RankPage extends Fragment {

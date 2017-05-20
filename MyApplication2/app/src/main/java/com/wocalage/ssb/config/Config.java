@@ -2,6 +2,7 @@ package com.wocalage.ssb.config;
 
 /**
  * Created by jiaojian on 2017-5-19.
+ * config file,save some public const
  */
 
 public class Config {

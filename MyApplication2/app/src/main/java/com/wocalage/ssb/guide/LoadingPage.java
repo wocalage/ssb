@@ -2,6 +2,7 @@ package com.wocalage.ssb.guide;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,13 +14,14 @@ import android.widget.Toast;
 import com.wocalage.ssb.config.Config;
 import com.wocalage.ssb.util.ActivityManager;
 import com.wocalage.ssb.main.R;
+import com.wocalage.ssb.util.DensityUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
  * Created by Jiaojian on 2017/5/18.
- * 加载界面
+ * loading page
  */
 
 public class LoadingPage extends Activity {
@@ -27,7 +29,7 @@ public class LoadingPage extends Activity {
     private int mQuestionNum;
     private String[] mQuestionList = new String[10];
     private boolean[] mAnswerList = new boolean[10];
-    private TextView mTitle;
+    private SlowTextView mTitle;
     private TextView mContent;
     private CheckBox mTrueBox, mFalseBox;
     private float mExitTime;
@@ -47,7 +49,7 @@ public class LoadingPage extends Activity {
     }
 
     private void init() {
-        mTitle = (TextView) findViewById(R.id.ssb_loading_title);
+        mTitle = (SlowTextView) findViewById(R.id.ssb_loading_title);
         mContent = (TextView) findViewById(R.id.ssb_loading_content);
         mTrueBox = (CheckBox) findViewById(R.id.ssb_loading_true);
         mFalseBox = (CheckBox) findViewById(R.id.ssb_loading_false);
@@ -79,7 +81,7 @@ public class LoadingPage extends Activity {
     }
 
     private void setTitle(String str) {
-        mTitle.setText(str);
+        mTitle.setContent(str);
     }
 
     private void setContent(String str) {
@@ -92,13 +94,14 @@ public class LoadingPage extends Activity {
             mQuestionNum++;
             if (mQuestionNum > (mQuestionList.length-1) ){
                 //答完题了，进入主页面
+                setTitle(getResources().getString(R.string.loading_title_end_tips));
                 setContent(getResources().getString(R.string.loading_title_end_tips));
                 mTrueBox.setVisibility(View.GONE);
                 mFalseBox.setVisibility(View.GONE);
                 successToClose();
             }else{
                 setContent(mQuestionList[mQuestionNum]);
-                setTitle(mQuestionNum+"/"+mQuestionList.length);
+                setTitle(mQuestionNum+"");
                 mTrueBox.setChecked(false);
                 mFalseBox.setChecked(false);
             }
@@ -120,7 +123,7 @@ public class LoadingPage extends Activity {
                 finish();
             }
         };
-        timer.schedule(timerTask,2000);
+        timer.schedule(timerTask,4000);
 
     }
 
