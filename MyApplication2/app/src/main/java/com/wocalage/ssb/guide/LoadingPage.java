@@ -2,7 +2,6 @@ package com.wocalage.ssb.guide;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 import com.wocalage.ssb.config.Config;
 import com.wocalage.ssb.util.ActivityManager;
 import com.wocalage.ssb.main.R;
-import com.wocalage.ssb.util.DensityUtils;
+import com.wocalage.ssb.view.SlowTextView;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -36,6 +36,7 @@ public class Main extends FragmentActivity implements View.OnClickListener {
     private RelativeLayout mBtRank,mBtHome;
     private FragmentPagerAdapter mVPAdapter;
     private List<Fragment> mPageList ;
+    private boolean isLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +76,12 @@ public class Main extends FragmentActivity implements View.OnClickListener {
         mBtRank = (RelativeLayout) findViewById(R.id.ssb_main_bottom_rank);
 
         mPageList = new ArrayList<>();
-        mPageList.add(new RankPage());
-        mPageList.add(new HomePage());
+        if (isLogin){
+            mPageList.add(new RankPage());
+            mPageList.add(new HomePage());
+        }else{
+            mPageList.add(new RankPage());
+        }
 
         //初始化选择rank
         setTabSelected(0);

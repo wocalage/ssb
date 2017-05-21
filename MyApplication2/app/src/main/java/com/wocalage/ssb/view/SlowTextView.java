@@ -1,4 +1,4 @@
-package com.wocalage.ssb.guide;
+package com.wocalage.ssb.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
