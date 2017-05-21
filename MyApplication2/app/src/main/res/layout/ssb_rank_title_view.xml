@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    >
+    android:layout_height="50dp">
+
     <TextView
+        android:id="@+id/ssb_rank_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ssb_rank_title"
-        android:textSize="16sp"
-        android:textColor="#ffffff"
         android:layout_centerInParent="true"
-        android:text="傻逼榜"/>
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/ssb_rank_question"
-        android:src="@drawable/ssb_loading_checkbox"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"/>
+        android:text="傻逼榜"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#000000"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:background="#000000" />
+
+    <Button
+        android:id="@+id/ssb_rank_question"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="38dp"
+        android:background="@drawable/ssb_bg_oval"
+        android:text="?"
+        android:textSize="16sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="38dp" />
 </RelativeLayout>

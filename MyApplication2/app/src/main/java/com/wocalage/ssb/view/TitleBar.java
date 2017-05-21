@@ -3,6 +3,7 @@ package com.wocalage.ssb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import com.wocalage.ssb.main.R;
 public class TitleBar extends RelativeLayout {
 
     private TextView mTvTitle;
-    private ImageView mIvQuestion;
+    private Button mBtQuestion;
     private TitleBarListener mListener;
     public TitleBar(Context context) {
         super(context);
@@ -34,9 +35,9 @@ public class TitleBar extends RelativeLayout {
     private void init(){
         inflate(getContext(), R.layout.ssb_rank_title_view,this);
         mTvTitle = (TextView) findViewById(R.id.ssb_loading_title);
-        mIvQuestion = (ImageView) findViewById(R.id.ssb_rank_question);
+        mBtQuestion = (Button) findViewById(R.id.ssb_rank_question);
 
-        mIvQuestion.setOnClickListener(new OnClickListener() {
+        mBtQuestion.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null){
