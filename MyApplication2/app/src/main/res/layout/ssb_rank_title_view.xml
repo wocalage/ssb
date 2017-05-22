@@ -24,7 +24,7 @@
         android:layout_height="30dp"
         android:layout_marginRight="38dp"
         android:background="@drawable/ssb_bg_oval"
-        android:text="?"
+        android:text="\?"
         android:textSize="16sp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
