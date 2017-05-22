@@ -53,7 +53,6 @@ public class SlowTextView extends TextView {
     }
     public void setContent(String content) {
         reset();
-        LogUtil.i(this,content);
         char[] chars =content.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             mContentsList.add(chars[i]+"");
@@ -81,7 +80,6 @@ public class SlowTextView extends TextView {
             return;
         }
         mContents += mContentsList.get(mCount);
-        LogUtil.i(this,mContents);
         float baseline = getMeasuredHeight()/2 + mPaint.getTextSize()/2 - mPaint.getFontMetrics().descent;
         canvas.drawText(mContents,getMeasuredWidth()/2 , baseline ,mPaint);
         mCount++;

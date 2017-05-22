@@ -23,14 +23,11 @@ import java.util.List;
  * Created by jiaojian on 2017-5-18.
  * main page
  */
-public class Main extends FragmentActivity implements View.OnClickListener {
+public class Main extends FragmentActivity{
 
-    private ViewPager mVPContainer;
-    private RelativeLayout mBtRank,mBtHome;
-    private FragmentPagerAdapter mVPAdapter;
-    private List<Fragment> mPageList ;
     private PageController mPageController;
-    private boolean isLogin;
+    private boolean isLogined = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +38,11 @@ public class Main extends FragmentActivity implements View.OnClickListener {
 
     private void init(){
         mPageController = new PageController(this);
-        SharedPreferences sp = getSharedPreferences(Config.SP_FILE_NAME,MODE_PRIVATE);
-        boolean isFirstInit = sp.getBoolean(Config.IS_FIRST_INIT,true);
-        if (isFirstInit){
+        if (isFirstIn()){ //引导页面
             mPageController.showLoadPage();
-            Intent intent = new Intent(this,LoadingPage.class);
-            startActivityForResult(intent,Config.START_LOADING_REQUEST_KEY);
-        }else if (isLogin){
+        }else if (isLogined){ // 用户页面
             mPageController.showLoginedPage();
-            initView();
-            initEvent();
-        }else{
+        }else{ //游客页面
             mPageController.showVisitorPage();
         }
     }
@@ -59,52 +50,21 @@ public class Main extends FragmentActivity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == Config.START_LOADING_REQUEST_KEY && resultCode == Config.START_LOADING_RESULT_KEY){
-            SharedPreferences sp = getSharedPreferences(Config.SP_FILE_NAME,MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putBoolean(Config.IS_FIRST_INIT,false);
-            editor.commit();
-            initView();
-            initEvent();
+            setIn();
+            mPageController.showVisitorPage();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void initView(){
-        mVPContainer = (ViewPager) findViewById(R.id.ssb_main_view_container);
-        mBtHome = (RelativeLayout) findViewById(R.id.ssb_main_bottom_home);
-        mBtRank = (RelativeLayout) findViewById(R.id.ssb_main_bottom_rank);
-
-        mPageList = new ArrayList<>();
-        if (isLogin){
-            mPageList.add(new RankPage());
-            mPageList.add(new HomePage());
-        }else{
-            mPageList.add(new RankPage());
-        }
-
-        //初始化选择rank
-        mPageController.setPageSelected(0);
+    private boolean isFirstIn(){
+        SharedPreferences sp = getSharedPreferences(Config.SP_FILE_NAME,MODE_PRIVATE);
+        return  sp.getBoolean(Config.IS_FIRST_INIT,true);
     }
 
-    private void initEvent(){
-        mBtRank.setOnClickListener(this);
-        mBtHome.setOnClickListener(this);
+    private void setIn(){
+        SharedPreferences sp = getSharedPreferences(Config.SP_FILE_NAME,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean(Config.IS_FIRST_INIT,false);
+        editor.commit();
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.ssb_main_bottom_rank:
-                mPageController.setPageSelected(0);
-                mBtRank.setSelected(true);
-                mBtHome.setSelected(false);
-                break;
-            case R.id.ssb_main_bottom_home:
-                mPageController.setPageSelected(1);
-                mBtRank.setSelected(false);
-                mBtHome.setSelected(true);
-                break;
-        }
-    }
-
 }

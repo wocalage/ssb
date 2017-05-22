@@ -13,12 +13,6 @@ public class LogUtil {
     private static final String TAG = "ssb";
 
     //通用应用tag
-    public static void i(String msg)
-    {
-        if (isDebug)
-            Log.i(TAG, msg);
-    }
-
     public static void d(String msg)
     {
         if (isDebug)
@@ -31,19 +25,7 @@ public class LogUtil {
             Log.e(TAG, msg);
     }
 
-    public static void v(String msg)
-    {
-        if (isDebug)
-            Log.v(TAG, msg);
-    }
-
     //类名为tag
-    public static void i(Object object, String msg)
-    {
-        if (isDebug)
-            Log.i(object.getClass().getSimpleName(), msg);
-    }
-
     public static void d(Object object, String msg)
     {
         if (isDebug)
@@ -51,12 +33,6 @@ public class LogUtil {
     }
 
     public static void e(Object object, String msg)
-    {
-        if (isDebug)
-            Log.i(object.getClass().getSimpleName(), msg);
-    }
-
-    public static void v(Object object, String msg)
     {
         if (isDebug)
             Log.i(object.getClass().getSimpleName(), msg);
