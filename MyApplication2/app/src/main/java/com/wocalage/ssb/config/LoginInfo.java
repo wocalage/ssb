@@ -2,6 +2,7 @@ package com.wocalage.ssb.config;
 
 /**
  * Created by jiaojian on 2017/5/22.
+ * save login information
  */
 
 public class LoginInfo {

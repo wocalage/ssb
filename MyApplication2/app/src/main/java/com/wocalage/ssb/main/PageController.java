@@ -32,6 +32,8 @@ public class PageController implements View.OnClickListener{
     private RelativeLayout mBtHome,mBtRank;
     private View mBottomView;
     private LinearLayout mMainContainer;
+    private RankPage mRankPage;
+    private HomePage mHomePage;
     
     public PageController(FragmentActivity activity){
         mActivity = activity;
@@ -45,17 +47,32 @@ public class PageController implements View.OnClickListener{
     public void showVisitorPage(){
         init();
         mFragments = new ArrayList<>();
-        mFragments.add(new RankPage());
+        mRankPage = new RankPage();
+        mFragments.add(mRankPage);
         initAdapter();
+        mRankPage.setListener(new RankPage.OnRankPageListener() {
+            @Override
+            public void onLogin(boolean isLoginOK) {
+
+            }
+        });
     }
     
     public void showLoginedPage(){
         init();
         initTab();
         mFragments = new ArrayList<>();
-        mFragments.add(new RankPage());
-        mFragments.add(new HomePage());
+        mRankPage = new RankPage();
+        mHomePage = new HomePage();
+        mFragments.add(mRankPage);
+        mFragments.add(mHomePage);
         initAdapter();
+        mRankPage.setListener(new RankPage.OnRankPageListener() {
+            @Override
+            public void onLogin(boolean isLoginOK) {
+
+            }
+        });
     }
 
     private void init(){

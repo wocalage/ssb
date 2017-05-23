@@ -61,6 +61,10 @@ public class LoginDialog implements View.OnClickListener {
         return mPassword.getText().toString();
     }
 
+    public void setTips(String str){
+        mTips.setText(str);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

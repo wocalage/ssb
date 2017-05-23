@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wocalage.ssb.callback.SSBCallCack;
 import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
@@ -33,6 +34,7 @@ public class RankPage extends Fragment {
     private RecyclerView mRecyclerView;
     private RankListAdapter mAdapter;
     private Context mContext;
+    private OnRankPageListener mListener;
 
     @Nullable
     @Override
@@ -65,7 +67,14 @@ public class RankPage extends Fragment {
                 if (LoginInfo.getInstance().isLogined()){
                     QuestionManager.getInstance().showHelp(mContext);
                 }else{
-                    LoginManager.getInstance().login(mContext);
+                    LoginManager.getInstance().login(mContext, new SSBCallCack<UserInfo>() {
+                        @Override
+                        public void callBack(int code, String msg, UserInfo data) {
+                            if (mListener != null){
+                                mListener.onLogin((code == SSBCallCack.CODE_SUCCESS)?true:false);
+                            }
+                        }
+                    });
                 }
             }
         });
@@ -79,6 +88,13 @@ public class RankPage extends Fragment {
             datas.add(user);
         }
         return datas;
+    }
+
+    public void setListener(OnRankPageListener listener){
+        mListener = listener;
+    }
+    public interface OnRankPageListener{
+        void onLogin(boolean isLoginOK);
     }
 
 }
