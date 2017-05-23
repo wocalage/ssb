@@ -7,11 +7,9 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.wocalage.ssb.util.DensityUtils;
-import com.wocalage.ssb.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;

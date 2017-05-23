@@ -10,8 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
+import com.wocalage.ssb.manager.LoginManager;
+import com.wocalage.ssb.manager.QuestionManager;
+import com.wocalage.ssb.view.LoginDialog;
 import com.wocalage.ssb.view.TitleBar;
 
 import java.util.ArrayList;
@@ -58,7 +62,11 @@ public class RankPage extends Fragment {
         mTitleBar.setListener(new TitleBar.TitleBarListener() {
             @Override
             public void onQuestionClick() {
-
+                if (LoginInfo.getInstance().isLogined()){
+                    QuestionManager.getInstance().showHelp(mContext);
+                }else{
+                    LoginManager.getInstance().login(mContext);
+                }
             }
         });
     }
@@ -72,4 +80,5 @@ public class RankPage extends Fragment {
         }
         return datas;
     }
+
 }

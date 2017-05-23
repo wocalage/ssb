@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="55dp"
+    android:layout_height="50.5dp"
     android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="#000000" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,6 +23,11 @@
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/ssb_rank_list_item_head"
             android:maxLines="1"
-            android:textColor="#000000" />
+            android:textColor="@color/app_theme_color" />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/app_theme_color" />
 </LinearLayout>
