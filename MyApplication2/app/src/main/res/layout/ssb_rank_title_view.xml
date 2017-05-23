@@ -25,6 +25,7 @@
         android:layout_marginRight="38dp"
         android:background="@drawable/ssb_bg_oval"
         android:text="\?"
+        android:clickable="true"
         android:textSize="16sp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"

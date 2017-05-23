@@ -26,7 +26,7 @@ import java.util.List;
 public class Main extends FragmentActivity{
 
     private PageController mPageController;
-    private boolean isLogined = true;
+    private boolean isLogined = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,10 @@ public class Main extends FragmentActivity{
         if (isFirstIn()){ //引导页面
             mPageController.showLoadPage();
         }else if (isLogined){ // 用户页面
+            mPageController.init();
             mPageController.showLoginedPage();
         }else{ //游客页面
+            mPageController.init();
             mPageController.showVisitorPage();
         }
     }

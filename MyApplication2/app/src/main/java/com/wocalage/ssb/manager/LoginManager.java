@@ -80,14 +80,14 @@ public class LoginManager {
         if (TextUtils.isEmpty(username)) {
             return mContext.getResources().getString(R.string.login_dialog_null_username);
         }
-        return username;
+        return "";
     }
 
     private String checkPassword(String password) {
         if (TextUtils.isEmpty(password)) {
             return mContext.getResources().getString(R.string.login_dialog_null_password);
         }
-        return password;
+        return "";
     }
 
     /**

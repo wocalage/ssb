@@ -45,7 +45,6 @@ public class PageController implements View.OnClickListener{
     }
     
     public void showVisitorPage(){
-        init();
         mFragments = new ArrayList<>();
         mRankPage = new RankPage();
         mFragments.add(mRankPage);
@@ -53,13 +52,15 @@ public class PageController implements View.OnClickListener{
         mRankPage.setListener(new RankPage.OnRankPageListener() {
             @Override
             public void onLogin(boolean isLoginOK) {
-
+                if (isLoginOK){
+                    removeAllPage();
+                    showLoginedPage();
+                }
             }
         });
     }
     
     public void showLoginedPage(){
-        init();
         initTab();
         mFragments = new ArrayList<>();
         mRankPage = new RankPage();
@@ -75,7 +76,7 @@ public class PageController implements View.OnClickListener{
         });
     }
 
-    private void init(){
+    public void init(){
         mActivity.setContentView(R.layout.activity_main);
         mViewPager = (ViewPager) mActivity.findViewById(R.id.ssb_main_view_container);
     }
@@ -121,6 +122,10 @@ public class PageController implements View.OnClickListener{
 
             }
         });
+    }
+
+    private void removeAllPage(){
+        mFragments.clear();
     }
 
     public void setPageSelected(int position){

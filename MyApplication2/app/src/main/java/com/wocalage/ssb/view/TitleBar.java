@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wocalage.ssb.main.R;
+import com.wocalage.ssb.util.LogUtil;
 
 /**
  * Created by jiaojian on 2017/5/21.
@@ -41,6 +42,7 @@ public class TitleBar extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 if (mListener != null){
+                    LogUtil.d(this,"init mBtnClick");
                     mListener.onQuestionClick();
                 }
             }

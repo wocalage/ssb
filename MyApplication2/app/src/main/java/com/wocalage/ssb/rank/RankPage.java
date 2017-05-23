@@ -16,6 +16,7 @@ import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.manager.LoginManager;
 import com.wocalage.ssb.manager.QuestionManager;
+import com.wocalage.ssb.util.LogUtil;
 import com.wocalage.ssb.view.LoginDialog;
 import com.wocalage.ssb.view.TitleBar;
 
@@ -65,8 +66,10 @@ public class RankPage extends Fragment {
             @Override
             public void onQuestionClick() {
                 if (LoginInfo.getInstance().isLogined()){
+                    LogUtil.d(this,"initEvent():showhelp");
                     QuestionManager.getInstance().showHelp(mContext);
                 }else{
+                    LogUtil.d(this,"initEvent():showlogin");
                     LoginManager.getInstance().login(mContext, new SSBCallCack<UserInfo>() {
                         @Override
                         public void callBack(int code, String msg, UserInfo data) {
