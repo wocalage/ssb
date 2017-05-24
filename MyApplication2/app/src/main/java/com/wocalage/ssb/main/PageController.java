@@ -5,9 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -38,6 +35,7 @@ public class PageController{
     
     public PageController(FragmentActivity activity){
         mActivity = activity;
+        init();
     }
     
     public void showLoadPage(){
@@ -62,7 +60,7 @@ public class PageController{
     }
     
     public void showLoginedPage(){
-        initTab();
+        initBottom();
         mFragments = new ArrayList<>();
         mRankPage = new RankPage();
         mHomePage = new HomePage();
@@ -77,11 +75,12 @@ public class PageController{
         });
     }
 
-    public void init(){
+    private void init(){
         mActivity.setContentView(R.layout.activity_main);
         mViewPager = (ViewPager) mActivity.findViewById(R.id.ssb_main_view_container);
     }
-    private void initTab(){
+
+    private void initBottom(){
         mMainContainer = (LinearLayout) mActivity.findViewById(R.id.activity_main);
         mBottomView = new BottomBar(mActivity);
         mMainContainer.addView(mBottomView);
@@ -94,7 +93,6 @@ public class PageController{
             @Override
             public void onHomeChoosed() {
                 setPageSelected(1);
-
             }
         });
         mBottomView.setTabChoosed(0);

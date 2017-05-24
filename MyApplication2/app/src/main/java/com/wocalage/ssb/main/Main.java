@@ -41,10 +41,8 @@ public class Main extends FragmentActivity{
         if (isFirstIn()){ //引导页面
             mPageController.showLoadPage();
         }else if (LoginInfo.getInstance().isLogined()){ // 用户页面
-            mPageController.init();
             mPageController.showLoginedPage();
         }else{ //游客页面
-            mPageController.init();
             mPageController.showVisitorPage();
         }
     }
@@ -53,7 +51,6 @@ public class Main extends FragmentActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == Config.START_LOADING_REQUEST_KEY && resultCode == Config.START_LOADING_RESULT_KEY){
             setIn();
-            mPageController.init();
             mPageController.showVisitorPage();
         }
         super.onActivityResult(requestCode, resultCode, data);
