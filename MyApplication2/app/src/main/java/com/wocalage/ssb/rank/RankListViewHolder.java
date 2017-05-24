@@ -15,7 +15,9 @@ public class RankListViewHolder extends RecyclerView.ViewHolder {
     public RankListViewHolder(View itemView) {
         super(itemView);
         mTVame = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_username);
+        mHead = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_head);
     }
 
     TextView mTVame;
+    TextView mHead;
 }

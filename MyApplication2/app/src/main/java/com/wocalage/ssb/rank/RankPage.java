@@ -83,7 +83,8 @@ public class RankPage extends Fragment {
         List<UserInfo> datas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             UserInfo user = new UserInfo();
-            user.setName(""+i);
+            user.setName("张三"+i);
+            user.setHead(""+i);
             datas.add(user);
         }
         return datas;

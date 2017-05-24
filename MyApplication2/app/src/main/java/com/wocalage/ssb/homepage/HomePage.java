@@ -54,8 +54,10 @@ public class HomePage extends Fragment {
     private void initFunc(){
         FunctionView recharge = new FunctionView(mContext);
         FunctionView shake = new FunctionView(mContext);
+        FunctionView setting = new FunctionView(mContext);
         mFunContainer.addView(recharge);
         mFunContainer.addView(shake);
+        mFunContainer.addView(setting);
         recharge.setLogo("充");
         recharge.setName("充值记录");
         recharge.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +72,14 @@ public class HomePage extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext,"click shake",Toast.LENGTH_SHORT).show();
+            }
+        });
+        setting.setLogo("设");
+        setting.setName("设置");
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

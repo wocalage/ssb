@@ -7,6 +7,15 @@ package com.wocalage.ssb.entity;
 public class UserInfo {
 
     private String name;
+    private String head;
+
+    public String getHead() {
+        return head;
+    }
+
+    public void setHead(String head) {
+        this.head = head;
+    }
 
     public String getName() {
         return name;

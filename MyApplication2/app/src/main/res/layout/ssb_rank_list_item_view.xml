@@ -8,12 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/ssb_rank_list_item_head"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp" />
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/ssb_bg_oval"
+            android:text="ss"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/app_theme_color"/>
 
         <TextView
             android:id="@+id/ssb_rank_list_item_username"

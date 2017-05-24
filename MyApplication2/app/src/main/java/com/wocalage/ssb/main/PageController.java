@@ -95,7 +95,6 @@ public class PageController{
                 setPageSelected(1);
             }
         });
-        mBottomView.setTabChoosed(0);
         setPageSelected(0);
     }
 
@@ -135,6 +134,7 @@ public class PageController{
     }
 
     public void setPageSelected(int position){
+        mBottomView.setTabChoosed(position);
         mViewPager.setCurrentItem(position);
     }
 

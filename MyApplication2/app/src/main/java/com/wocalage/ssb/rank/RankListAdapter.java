@@ -35,6 +35,7 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
     @Override
     public void onBindViewHolder(RankListViewHolder holder, int position) {
         holder.mTVame.setText(mDatas.get(position).getName());
+        holder.mHead.setText(mDatas.get(position).getHead());
     }
 
     @Override
