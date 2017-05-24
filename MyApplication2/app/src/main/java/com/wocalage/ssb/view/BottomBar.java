@@ -68,14 +68,14 @@ public class BottomBar extends LinearLayout {
     public void setTabChoosed(int tabNum){
         if (tabNum == 0){
             mHome.setSelected(true);
-            mHomeText.setTextColor(getResources().getColor(R.color.app_theme_color_oppo));
+            mHomeText.setTextColor(getResources().getColor(R.color.app_theme_color_opposite));
             mRank.setSelected(false);
             mRankText.setTextColor(getResources().getColor(R.color.app_theme_color));
         }else{
             mHome.setSelected(false);
             mHomeText.setTextColor(getResources().getColor(R.color.app_theme_color));
             mRank.setSelected(true);
-            mRankText.setTextColor(getResources().getColor(R.color.app_theme_color_oppo));
+            mRankText.setTextColor(getResources().getColor(R.color.app_theme_color_opposite));
         }
     }
 
