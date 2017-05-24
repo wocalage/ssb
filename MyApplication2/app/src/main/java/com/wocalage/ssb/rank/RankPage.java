@@ -66,10 +66,8 @@ public class RankPage extends Fragment {
             @Override
             public void onQuestionClick() {
                 if (LoginInfo.getInstance().isLogined()){
-                    LogUtil.d(this,"initEvent():showhelp");
                     QuestionManager.getInstance().showHelp(mContext);
                 }else{
-                    LogUtil.d(this,"initEvent():showlogin");
                     LoginManager.getInstance().login(mContext, new SSBCallCack<UserInfo>() {
                         @Override
                         public void callBack(int code, String msg, UserInfo data) {

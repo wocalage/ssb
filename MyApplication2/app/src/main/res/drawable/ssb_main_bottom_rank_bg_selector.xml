@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="true" android:drawable="@drawable/ssb_main_bottom_rank_choosed"></item>
-    <item android:state_selected="false" android:drawable="@drawable/ssb_main_bottom_rank"></item>
+    <item android:state_selected="true" android:drawable="@color/app_theme_color"></item>
+    <item android:state_selected="false" android:drawable="@color/app_theme_color_opposite"></item>
 </selector>

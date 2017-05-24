@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.wocalage.ssb.callback.SSBCallCack;
+import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.util.LogUtil;
@@ -103,6 +104,7 @@ public class LoginManager {
         UserInfo userInfo = new UserInfo();
         userInfo.setName(username);
         callCack.callBack(SSBCallCack.CODE_SUCCESS, "", userInfo);
+        LoginInfo.getInstance().setLogin(true);
     }
 
 }

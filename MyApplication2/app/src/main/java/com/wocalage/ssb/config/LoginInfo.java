@@ -20,4 +20,8 @@ public class LoginInfo {
     public boolean isLogined() {
         return mIsLogin;
     }
+
+    public void setLogin(boolean isLogin){
+        mIsLogin = isLogin;
+    }
 }

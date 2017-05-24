@@ -1,29 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="55dp"
-    android:orientation="horizontal"
-    >
+    android:layout_height="30dp"
+    android:orientation="horizontal">
+
     <RelativeLayout
         android:id="@+id/ssb_main_bottom_rank"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center">
-        <ImageView
+        android:gravity="center"
+        android:background="@drawable/ssb_main_bottom_rank_bg_selector"
+        >
+
+        <TextView
+            android:id="@+id/ssb_main_bottom_rank_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ssb_main_bottom_rank_bg_selector"/>
+            android:gravity="center"
+            android:text="rank"
+            android:textColor="@color/app_theme_color"
+            />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="1sp"
+        android:layout_height="match_parent"
+        android:background="@color/app_theme_color" />
+
     <RelativeLayout
         android:id="@+id/ssb_main_bottom_home"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center">
-        <ImageView
+        android:gravity="center"
+        android:background="@drawable/ssb_main_bottom_homepage_bg_selector">
+
+        <TextView
+            android:id="@+id/ssb_main_bottom_home_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ssb_main_bottom_homepage_bg_selector"/>
+            android:gravity="center"
+            android:text="home"
+            android:textColor="@color/app_theme_color" />
     </RelativeLayout>
 </LinearLayout>

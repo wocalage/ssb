@@ -15,6 +15,7 @@ import com.wocalage.ssb.config.Config;
 import com.wocalage.ssb.guide.LoadingPage;
 import com.wocalage.ssb.homepage.HomePage;
 import com.wocalage.ssb.rank.RankPage;
+import com.wocalage.ssb.view.BottomBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +24,14 @@ import java.util.List;
  * Created by jiaojian on 2017-5-22.
  */
 
-public class PageController implements View.OnClickListener{
+public class PageController{
     
     private FragmentActivity mActivity;
     private List<Fragment> mFragments;
     private FragmentPagerAdapter mPageAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mBtHome,mBtRank;
-    private View mBottomView;
+    private BottomBar mBottomView;
     private LinearLayout mMainContainer;
     private RankPage mRankPage;
     private HomePage mHomePage;
@@ -82,14 +83,21 @@ public class PageController implements View.OnClickListener{
     }
     private void initTab(){
         mMainContainer = (LinearLayout) mActivity.findViewById(R.id.activity_main);
-        mBottomView = mActivity.getLayoutInflater().inflate(R.layout.ssb_main_bottom_view,null);
+        mBottomView = new BottomBar(mActivity);
         mMainContainer.addView(mBottomView);
-        mBtHome = (RelativeLayout) mBottomView.findViewById(R.id.ssb_main_bottom_home);
-        mBtRank = (RelativeLayout) mBottomView.findViewById(R.id.ssb_main_bottom_rank);
-        mBtRank.setOnClickListener(this);
-        mBtHome.setOnClickListener(this);
+        mBottomView.setListener(new BottomBar.onBottomBarListener() {
+            @Override
+            public void onRankChoosed() {
+                setPageSelected(0);
+            }
 
-        //初始化选择rank
+            @Override
+            public void onHomeChoosed() {
+                setPageSelected(1);
+
+            }
+        });
+        mBottomView.setTabChoosed(0);
         setPageSelected(0);
     }
 
@@ -132,19 +140,4 @@ public class PageController implements View.OnClickListener{
         mViewPager.setCurrentItem(position);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.ssb_main_bottom_rank:
-                setPageSelected(0);
-                mBtRank.setSelected(true);
-                mBtHome.setSelected(false);
-                break;
-            case R.id.ssb_main_bottom_home:
-                setPageSelected(1);
-                mBtRank.setSelected(false);
-                mBtHome.setSelected(true);
-                break;
-        }
-    }
 }
