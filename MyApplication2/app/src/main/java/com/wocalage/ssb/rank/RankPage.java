@@ -16,8 +16,6 @@ import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.manager.LoginManager;
 import com.wocalage.ssb.manager.QuestionManager;
-import com.wocalage.ssb.util.LogUtil;
-import com.wocalage.ssb.view.LoginDialog;
 import com.wocalage.ssb.view.TitleBar;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ import java.util.List;
 public class RankPage extends Fragment {
 
     private TitleBar mTitleBar;
-    private View mRankPageView;
+    private View me;
     private RecyclerView mRecyclerView;
     private RankListAdapter mAdapter;
     private Context mContext;
@@ -41,7 +39,7 @@ public class RankPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ssb_rank_page_view,container,false);
-        mRankPageView = view;
+        me = view;
         initView();
         return view;
     }
@@ -53,8 +51,8 @@ public class RankPage extends Fragment {
     }
 
     private void initView(){
-        mTitleBar = (TitleBar) mRankPageView.findViewById(R.id.ssb_rank_titlebar);
-        mRecyclerView = (RecyclerView) mRankPageView.findViewById(R.id.ssb_rank_recyclerview);
+        mTitleBar = (TitleBar) me.findViewById(R.id.ssb_rank_titlebar);
+        mRecyclerView = (RecyclerView) me.findViewById(R.id.ssb_rank_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mAdapter = new RankListAdapter(mContext,getData());
         mRecyclerView.setAdapter(mAdapter);

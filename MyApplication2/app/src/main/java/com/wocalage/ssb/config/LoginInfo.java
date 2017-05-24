@@ -7,7 +7,7 @@ package com.wocalage.ssb.config;
 
 public class LoginInfo {
 
-    private boolean mIsLogin;
+    private boolean mIsLogin = true;
     private static LoginInfo mLoginInfo = new LoginInfo();
 
     private LoginInfo() {

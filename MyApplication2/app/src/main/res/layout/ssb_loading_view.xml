@@ -3,46 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal">
+
     <com.wocalage.ssb.view.SlowTextView
+        android:id="@+id/ssb_loading_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ssb_loading_title"
-        android:textColor="@color/app_theme_color"
-        android:textSize="16sp"
         android:layout_marginTop="60dp"
         android:gravity="center"
-        />
+        android:textColor="@color/app_theme_color"
+        android:textSize="16sp" />
+
     <TextView
+        android:id="@+id/ssb_loading_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ssb_loading_content"
-        android:textColor="@color/app_theme_color"
-        android:textSize="14sp"
         android:layout_centerInParent="true"
         android:gravity="center"
-        />
+        android:textColor="@color/app_theme_color"
+        android:textSize="14sp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
-        >
+        android:layout_marginBottom="60dp">
+
         <CheckBox
+            android:id="@+id/ssb_loading_true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ssb_loading_true"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="60dp"
             android:text="是"
-            android:textSize="@color/app_theme_color"
-            />
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp" />
+
         <CheckBox
+            android:id="@+id/ssb_loading_false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ssb_loading_false"
             android:layout_alignParentRight="true"
             android:layout_marginRight="60dp"
             android:text="否"
-            android:textColor="@color/app_theme_color"/>
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp" />
     </RelativeLayout>
 </RelativeLayout>

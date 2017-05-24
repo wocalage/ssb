@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.wocalage.ssb.config.Config;
+import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.guide.LoadingPage;
 import com.wocalage.ssb.homepage.HomePage;
 import com.wocalage.ssb.rank.RankPage;
@@ -26,7 +27,6 @@ import java.util.List;
 public class Main extends FragmentActivity{
 
     private PageController mPageController;
-    private boolean isLogined = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class Main extends FragmentActivity{
         mPageController = new PageController(this);
         if (isFirstIn()){ //引导页面
             mPageController.showLoadPage();
-        }else if (isLogined){ // 用户页面
+        }else if (LoginInfo.getInstance().isLogined()){ // 用户页面
             mPageController.init();
             mPageController.showLoginedPage();
         }else{ //游客页面
@@ -53,6 +53,7 @@ public class Main extends FragmentActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == Config.START_LOADING_REQUEST_KEY && resultCode == Config.START_LOADING_RESULT_KEY){
             setIn();
+            mPageController.init();
             mPageController.showVisitorPage();
         }
         super.onActivityResult(requestCode, resultCode, data);

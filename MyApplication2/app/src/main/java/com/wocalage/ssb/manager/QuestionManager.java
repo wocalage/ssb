@@ -1,10 +1,9 @@
 package com.wocalage.ssb.manager;
 
-import android.app.Dialog;
 import android.content.Context;
 
 import com.wocalage.ssb.main.R;
-import com.wocalage.ssb.view.QuestionDialog;
+import com.wocalage.ssb.dialog.QuestionDialog;
 
 /**
  * Created by jiaojian on 2017/5/22.

@@ -1,4 +1,4 @@
-package com.wocalage.ssb.view;
+package com.wocalage.ssb.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

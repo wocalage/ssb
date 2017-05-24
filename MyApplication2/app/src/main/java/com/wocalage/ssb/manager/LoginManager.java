@@ -1,17 +1,14 @@
 package com.wocalage.ssb.manager;
 
 import android.content.Context;
-import android.content.pm.InstrumentationInfo;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.Toast;
 
 import com.wocalage.ssb.callback.SSBCallCack;
 import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.util.LogUtil;
-import com.wocalage.ssb.view.LoginDialog;
+import com.wocalage.ssb.dialog.LoginDialog;
 
 /**
  * Created by jiaojian on 2017/5/22.
