@@ -1,10 +1,14 @@
 package com.wocalage.ssb.homepage.function;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.wocalage.ssb.dialog.CallBackDialog;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.util.ActivityManager;
 
@@ -60,11 +64,24 @@ public class Setting extends Activity {
     }
 
     private void sendError(){
+        final CallBackDialog dialog = new CallBackDialog(this);
+        dialog.show();
+        dialog.setListener(new CallBackDialog.OnCallbackDialogListener() {
+            @Override
+            public void onCommit(String str) {
+                if (TextUtils.isEmpty(str) || str.trim().length() < 10){
+                    Toast.makeText(Setting.this,"反馈建议不能少于十个字哦",Toast.LENGTH_SHORT).show();
+                }else{
+                    // do it
+                    dialog.dismiss();
+                }
+            }
+        });
 
     }
 
     private void openAbout(){
-
+        
     }
 
     private void exit(){
@@ -72,6 +89,7 @@ public class Setting extends Activity {
     }
 
     private void back(){
-
+        ActivityManager.removeActivity(this);
+        finish();
     }
 }
