@@ -1,6 +1,7 @@
 package com.wocalage.ssb.homepage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wocalage.ssb.homepage.function.Setting;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.view.FunctionView;
 
@@ -79,8 +81,13 @@ public class HomePage extends Fragment {
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                goSettingPage();
             }
         });
+    }
+
+    private void goSettingPage(){
+        Intent intent = new Intent(mContext, Setting.class);
+        startActivity(intent);
     }
 }

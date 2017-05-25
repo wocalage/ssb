@@ -2,6 +2,7 @@ package com.wocalage.ssb.homepage.function;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -81,15 +82,22 @@ public class Setting extends Activity {
     }
 
     private void openAbout(){
-        
+        Intent intent = new Intent(this,SettingAbout.class);
+        startActivity(intent);
     }
 
     private void exit(){
-
+        // TODO: 2017/5/25 退出登录操作
     }
 
     private void back(){
         ActivityManager.removeActivity(this);
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        ActivityManager.removeActivity(this);
+        super.onDestroy();
     }
 }
