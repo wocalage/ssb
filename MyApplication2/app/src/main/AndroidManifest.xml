@@ -19,6 +19,12 @@
         <activity
             android:name="com.wocalage.ssb.guide.LoadingPage"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name="com.wocalage.ssb.homepage.function.Setting"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name="com.wocalage.ssb.homepage.function.SettingAbout"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
