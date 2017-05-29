@@ -1,11 +1,11 @@
 package com.wocalage.ssb.rank;
 
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.widget.TextView;
 
 import com.wocalage.ssb.main.R;
+import com.wocalage.ssb.view.LikeView;
 
 /**
  * Created by jiaojian on 2017/5/21.
@@ -14,10 +14,22 @@ import com.wocalage.ssb.main.R;
 public class RankListViewHolder extends RecyclerView.ViewHolder {
     public RankListViewHolder(View itemView) {
         super(itemView);
-        mTVame = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_username);
+        mName = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_username);
         mHead = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_head);
+        mDes = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_des);
+        mUp = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_up);
+        mDown = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_down);
+        mDistance = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_upDistance);
+        mLikeNum = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_likenum);
+        mLike = (LikeView) itemView.findViewById(R.id.ssb_rank_list_item_like);
     }
 
-    TextView mTVame;
+    TextView mName;
     TextView mHead;
+    TextView mDes;
+    TextView mUp;
+    TextView mDown;
+    TextView mDistance;
+    TextView mLikeNum;
+    LikeView mLike;
 }

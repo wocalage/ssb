@@ -30,4 +30,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="help_content">The millennia-old board game of Go had long been thought of being beyond the reach of AI algorithms thanks to its notorious complexity, with each move involving a much higher number of possible plays than, for example, chess. But AlphaGo’s previous sweeping wins against a long list of top human players have proved that AI can play the game at a level no human likely ever could attain, something thought impossible as recently as 2014.</string>
+
+    /***************tab**************/
+    <string name="ssb_main_tab_rank">排行榜</string>
+    <string name="ssb_main_tab_hompage">个人中心</string>
+    <string name="ssb_rank_tab_recent">最近</string>
+    <string name="ssb_rank_tab_total">总榜</string>
 </resources>

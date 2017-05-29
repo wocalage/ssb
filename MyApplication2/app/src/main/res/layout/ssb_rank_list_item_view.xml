@@ -24,15 +24,89 @@
             android:id="@+id/ssb_rank_list_item_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="7dp"
+            android:textSize="18sp"
+            android:gravity="left"
             android:layout_toRightOf="@id/ssb_rank_list_item_head"
             android:maxLines="1"
             android:textColor="@color/app_theme_color" />
+        <TextView
+            android:id="@+id/ssb_rank_list_item_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_theme_color"
+            android:layout_toRightOf="@id/ssb_rank_list_item_head"
+            android:layout_marginLeft="20dp"
+            android:textSize="14sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="7dp"
+            android:gravity="left"/>
+
+        <TextView
+            android:id="@+id/ssb_rank_list_item_level_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp"/>
+        <com.wocalage.ssb.view.LikeView
+            android:id="@+id/ssb_rank_list_item_like"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            />
+
+        <TextView
+            android:id="@+id/ssb_rank_list_item_likenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="right"
+            android:layout_toLeftOf="@id/ssb_rank_list_item_like"
+            android:textColor="@color/app_theme_color"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"/>
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/ssb_rank_list_item_up"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/ssb_bg_triangle_up"
+                android:visibility="gone"
+                />
+            <TextView
+                android:id="@+id/ssb_rank_list_item_down"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/ssb_bg_triangle_down"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/ssb_rank_list_item_upDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/app_theme_color"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:gravity="center" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="1sp"
+        android:layout_height="1px"
         android:background="@color/app_theme_color" />
 </LinearLayout>

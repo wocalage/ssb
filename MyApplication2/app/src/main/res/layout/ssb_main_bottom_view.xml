@@ -5,7 +5,7 @@
     android:orientation="horizontal">
 
     <RelativeLayout
-        android:id="@+id/ssb_main_bottom_rank"
+        android:id="@+id/ssb_main_bottom_left"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -14,11 +14,10 @@
         >
 
         <TextView
-            android:id="@+id/ssb_main_bottom_rank_text"
+            android:id="@+id/ssb_main_bottom_left_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="rank"
             android:textColor="@color/app_theme_color"
             />
     </RelativeLayout>
@@ -29,7 +28,7 @@
         android:background="@color/app_theme_color" />
 
     <RelativeLayout
-        android:id="@+id/ssb_main_bottom_home"
+        android:id="@+id/ssb_main_bottom_right"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -37,11 +36,10 @@
         android:background="@drawable/ssb_main_bottom_homepage_bg_selector">
 
         <TextView
-            android:id="@+id/ssb_main_bottom_home_text"
+            android:id="@+id/ssb_main_bottom_right_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="home"
             android:textColor="@color/app_theme_color" />
     </RelativeLayout>
 </LinearLayout>

@@ -12,7 +12,7 @@ import com.wocalage.ssb.config.Config;
 import com.wocalage.ssb.guide.LoadingPage;
 import com.wocalage.ssb.homepage.HomePage;
 import com.wocalage.ssb.rank.RankPage;
-import com.wocalage.ssb.view.BottomBar;
+import com.wocalage.ssb.view.TabBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class PageController{
     private FragmentPagerAdapter mPageAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mBtHome,mBtRank;
-    private BottomBar mBottomView;
+    private TabBar mBottomView;
     private LinearLayout mMainContainer;
     private RankPage mRankPage;
     private HomePage mHomePage;
@@ -82,16 +82,18 @@ public class PageController{
 
     private void initBottom(){
         mMainContainer = (LinearLayout) mActivity.findViewById(R.id.activity_main);
-        mBottomView = new BottomBar(mActivity);
+        mBottomView = new TabBar(mActivity);
+        mBottomView.setLeftText(mActivity.getString(R.string.ssb_main_tab_rank));
+        mBottomView.setRightText(mActivity.getString(R.string.ssb_main_tab_hompage));
         mMainContainer.addView(mBottomView);
-        mBottomView.setListener(new BottomBar.onBottomBarListener() {
+        mBottomView.setListener(new TabBar.onTabBarListener() {
             @Override
-            public void onRankChoosed() {
+            public void onLeftChoosed() {
                 setPageSelected(0);
             }
 
             @Override
-            public void onHomeChoosed() {
+            public void onRightChoosed() {
                 setPageSelected(1);
             }
         });

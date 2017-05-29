@@ -3,6 +3,7 @@ package com.wocalage.ssb.rank;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.wocalage.ssb.entity.UserInfo;
@@ -20,9 +21,13 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
     private Context mContext;
     private List<UserInfo> mDatas = new ArrayList<>();
 
-    public RankListAdapter(Context context, List<UserInfo> datas) {
+    public RankListAdapter(Context context) {
         mContext = context;
+    }
+
+    public void setData(List<UserInfo> datas){
         mDatas = datas;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -34,8 +39,17 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
 
     @Override
     public void onBindViewHolder(RankListViewHolder holder, int position) {
-        holder.mTVame.setText(mDatas.get(position).getName());
+        holder.mName.setText(mDatas.get(position).getName());
         holder.mHead.setText(mDatas.get(position).getHead());
+        holder.mDistance.setText(mDatas.get(position).getUpDistance());
+        if (mDatas.get(position).getUpDistance() > 0){
+            holder.mUp.setVisibility(View.VISIBLE);
+            holder.mUp.setVisibility(View.GONE);
+        }else{
+            holder.mUp.setVisibility(View.GONE);
+            holder.mUp.setVisibility(View.VISIBLE);
+        }
+        holder.mLikeNum.setText(mDatas.get(position).getLikeNum());
     }
 
     @Override

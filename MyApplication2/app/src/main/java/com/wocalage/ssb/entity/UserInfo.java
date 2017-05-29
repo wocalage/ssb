@@ -10,6 +10,35 @@ public class UserInfo {
     private String name = "";
     private String head = "";
     private String des = "";
+    private int level;//傻逼值
+    private int upDistance; //上升名次，正为上升，负为下降，0为维持
+    private int likeNum;
+
+    public int getLikeNum() {
+        return likeNum;
+    }
+
+    public void setLikeNum(int likeNum) {
+        this.likeNum = likeNum;
+    }
+
+    public int getUpDistance() {
+        return upDistance;
+    }
+
+    public void setUpDistance(int upDistance) {
+        this.upDistance = upDistance;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+
 
     public String getUid() {
         return uid;
