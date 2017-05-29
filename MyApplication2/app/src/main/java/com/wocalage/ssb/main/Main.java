@@ -40,7 +40,7 @@ public class Main extends FragmentActivity{
         mPageController = new PageController(this);
         if (isFirstIn()){ //引导页面
             mPageController.showLoadPage();
-        }else if (LoginInfo.getInstance().isLogined()){ // 用户页面
+        }else if (LoginInfo.getInstance(this).isLogined()){ // 用户页面
             mPageController.showLoginedPage();
         }else{ //游客页面
             mPageController.showVisitorPage();

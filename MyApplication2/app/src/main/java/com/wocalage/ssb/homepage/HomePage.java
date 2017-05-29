@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wocalage.ssb.config.LoginInfo;
+import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.homepage.function.Setting;
 import com.wocalage.ssb.main.R;
+import com.wocalage.ssb.util.LogUtil;
 import com.wocalage.ssb.view.FunctionView;
 
 /**
@@ -28,6 +32,7 @@ public class HomePage extends Fragment {
     private View me;
     private TextView mHead,mName,mDes;
     private LinearLayout mFunContainer;
+    private UserInfo mInfo;
 
     @Nullable
     @Override
@@ -50,9 +55,28 @@ public class HomePage extends Fragment {
         mDes = (TextView) me.findViewById(R.id.ssb_home_info_description);
         mFunContainer = (LinearLayout) me.findViewById(R.id.ssb_home_function_container);
 
+        initView();
         initFunc();
     }
 
+    /**
+     * 初始化用户信息
+     */
+    private void initView(){
+        mInfo = LoginInfo.getInstance(mContext).getMyInfo();
+        LogUtil.d(this,"initView :mInfo:"+mInfo);
+        if (mInfo == null){
+            // TODO: 2017-5-29 error info
+            return;
+        }
+        mHead.setText((TextUtils.isEmpty(mInfo.getHead())?"傻":mInfo.getHead()));
+        mName.setText((TextUtils.isEmpty(mInfo.getName())?mInfo.getUid():mInfo.getName()));
+        mDes.setText((TextUtils.isEmpty(mInfo.getDes())?"该傻逼什么都没有留下":mInfo.getDes()));
+    }
+
+    /**
+     * 初始化功能列表
+     */
     private void initFunc(){
         FunctionView recharge = new FunctionView(mContext);
         FunctionView shake = new FunctionView(mContext);

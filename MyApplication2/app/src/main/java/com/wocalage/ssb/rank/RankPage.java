@@ -63,7 +63,7 @@ public class RankPage extends Fragment {
         mTitleBar.setListener(new TitleBar.TitleBarListener() {
             @Override
             public void onQuestionClick() {
-                if (LoginInfo.getInstance().isLogined()){
+                if (LoginInfo.getInstance(mContext).isLogined()){
                     QuestionManager.getInstance().showHelp(mContext);
                 }else{
                     LoginManager.getInstance().login(mContext, new SSBCallCack<UserInfo>() {

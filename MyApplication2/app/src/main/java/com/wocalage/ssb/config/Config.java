@@ -11,4 +11,10 @@ public class Config {
     public static final int START_LOADING_RESULT_KEY = 102;
     public static final String SP_FILE_NAME = "m_sp";
     public static final String IS_FIRST_INIT = "isFirstInit";
+
+    /************登录信息***************/
+    public static final String LOGIN_UID="loginId";
+    public static final String LOGIN_NAME="loginName";
+    public static final String LOGIN_HEAD="loginHead";
+    public static final String LOGIN_DES="loginDes";
 }
