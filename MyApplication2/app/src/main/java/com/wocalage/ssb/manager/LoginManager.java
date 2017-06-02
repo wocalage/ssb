@@ -99,9 +99,9 @@ public class LoginManager {
 
         //fetch user data
         UserInfo userInfo = new UserInfo();
-        userInfo.setUid("xixixiix");
-        userInfo.setName(username);
-        userInfo.setHead("哈");
+        userInfo.uid = "xixixiix";
+        userInfo.name = username;
+        userInfo.head = "哈";
         LoginInfo.getInstance(mContext).setMyInfo(userInfo);
         callCack.callBack(SSBCallCack.CODE_SUCCESS, "", null);
     }

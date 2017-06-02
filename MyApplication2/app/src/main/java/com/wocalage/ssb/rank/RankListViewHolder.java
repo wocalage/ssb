@@ -21,7 +21,6 @@ public class RankListViewHolder extends RecyclerView.ViewHolder {
         mDown = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_down);
         mDistance = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_upDistance);
         mLikeNum = (TextView) itemView.findViewById(R.id.ssb_rank_list_item_likenum);
-        mLike = (LikeView) itemView.findViewById(R.id.ssb_rank_list_item_like);
     }
 
     TextView mName;
@@ -31,5 +30,4 @@ public class RankListViewHolder extends RecyclerView.ViewHolder {
     TextView mDown;
     TextView mDistance;
     TextView mLikeNum;
-    LikeView mLike;
 }

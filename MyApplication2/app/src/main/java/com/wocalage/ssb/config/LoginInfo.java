@@ -28,40 +28,40 @@ public class LoginInfo {
     }
 
     public boolean isLogined() {
-        if (getMyInfo() != null){
+        if (getMyInfo() != null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public UserInfo getMyInfo(){
-        if (mInfo != null){
+    public UserInfo getMyInfo() {
+        if (mInfo != null) {
             return mInfo;
-        }else{
-            String uid = (String)SPUtils.get(mContext,Config.LOGIN_UID,"");
-            if (TextUtils.isEmpty(uid)){
+        } else {
+            String uid = (String) SPUtils.get(mContext, Config.LOGIN_UID, "");
+            if (TextUtils.isEmpty(uid)) {
                 return null;
-            }else{
+            } else {
                 UserInfo info = new UserInfo();
-                info.setUid(uid);
-                info.setName((String)SPUtils.get(mContext,Config.LOGIN_NAME,""));
-                info.setHead((String)SPUtils.get(mContext,Config.LOGIN_HEAD,""));
-                info.setDes((String)SPUtils.get(mContext,Config.LOGIN_DES,""));
+                info.uid = uid;
+                info.name = (String) SPUtils.get(mContext, Config.LOGIN_NAME, "");
+                info.head = (String) SPUtils.get(mContext, Config.LOGIN_HEAD, "");
+                info.des = (String) SPUtils.get(mContext, Config.LOGIN_DES, "");
                 mInfo = info;
                 return mInfo;
             }
         }
     }
 
-    public void  setMyInfo(UserInfo info){
-        if (info == null){
+    public void setMyInfo(UserInfo info) {
+        if (info == null) {
             return;
         }
-        SPUtils.put(mContext,Config.LOGIN_UID,info.getUid());
-        SPUtils.put(mContext,Config.LOGIN_NAME,info.getName());
-        SPUtils.put(mContext,Config.LOGIN_HEAD,info.getHead());
-        SPUtils.put(mContext,Config.LOGIN_DES,info.getDes());
+        SPUtils.put(mContext, Config.LOGIN_UID, info.uid);
+        SPUtils.put(mContext, Config.LOGIN_NAME, info.name);
+        SPUtils.put(mContext, Config.LOGIN_HEAD, info.head);
+        SPUtils.put(mContext, Config.LOGIN_DES, info.des);
         mInfo = info;
     }
 }

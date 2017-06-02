@@ -39,17 +39,17 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
 
     @Override
     public void onBindViewHolder(RankListViewHolder holder, int position) {
-        holder.mName.setText(mDatas.get(position).getName());
-        holder.mHead.setText(mDatas.get(position).getHead());
-        holder.mDistance.setText(mDatas.get(position).getUpDistance());
-        if (mDatas.get(position).getUpDistance() > 0){
+        holder.mName.setText(mDatas.get(position).name);
+        holder.mHead.setText(mDatas.get(position).head);
+        holder.mDistance.setText(mDatas.get(position).upDistance+"");
+        if (mDatas.get(position).upDistance > 0){
             holder.mUp.setVisibility(View.VISIBLE);
             holder.mUp.setVisibility(View.GONE);
         }else{
             holder.mUp.setVisibility(View.GONE);
             holder.mUp.setVisibility(View.VISIBLE);
         }
-        holder.mLikeNum.setText(mDatas.get(position).getLikeNum());
+        holder.mLikeNum.setText(mDatas.get(position).likeNum+"");
     }
 
     @Override

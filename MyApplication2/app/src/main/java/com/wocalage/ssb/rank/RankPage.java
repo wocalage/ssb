@@ -107,8 +107,8 @@ public class RankPage extends Fragment {
         List<UserInfo> datas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             UserInfo user = new UserInfo();
-            user.setName("张三"+i);
-            user.setHead(""+i);
+            user.name = "张三"+i;
+            user.head = ""+i;
             datas.add(user);
         }
         return datas;
@@ -117,8 +117,8 @@ public class RankPage extends Fragment {
         List<UserInfo> datas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             UserInfo user = new UserInfo();
-            user.setName("李四"+i);
-            user.setHead(""+i);
+            user.name = "李四"+i;
+            user.head = ""+i;
             datas.add(user);
         }
         return datas;

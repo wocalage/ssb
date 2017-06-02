@@ -69,9 +69,9 @@ public class HomePage extends Fragment {
             // TODO: 2017-5-29 error info
             return;
         }
-        mHead.setText((TextUtils.isEmpty(mInfo.getHead())?"傻":mInfo.getHead()));
-        mName.setText((TextUtils.isEmpty(mInfo.getName())?mInfo.getUid():mInfo.getName()));
-        mDes.setText((TextUtils.isEmpty(mInfo.getDes())?"该傻逼什么都没有留下":mInfo.getDes()));
+        mHead.setText((TextUtils.isEmpty(mInfo.head)?"傻":mInfo.head));
+        mName.setText((TextUtils.isEmpty(mInfo.name)?mInfo.uid:mInfo.name));
+        mDes.setText((TextUtils.isEmpty(mInfo.des)?"该傻逼什么都没有留下":mInfo.des));
     }
 
     /**
