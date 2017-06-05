@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wocalage.ssb.main.R;
-import com.wocalage.ssb.view.LikeView;
 
 /**
  * Created by jiaojian on 2017/5/21.

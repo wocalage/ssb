@@ -2,12 +2,14 @@ package com.wocalage.ssb.rank;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
+import com.wocalage.ssb.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,12 +46,14 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
         holder.mDistance.setText(mDatas.get(position).upDistance+"");
         if (mDatas.get(position).upDistance > 0){
             holder.mUp.setVisibility(View.VISIBLE);
-            holder.mUp.setVisibility(View.GONE);
+            holder.mDown.setVisibility(View.GONE);
         }else{
             holder.mUp.setVisibility(View.GONE);
-            holder.mUp.setVisibility(View.VISIBLE);
+            holder.mDown.setVisibility(View.VISIBLE);
         }
+        LogUtil.d(this,mDatas.get(position).likeNum+"");
         holder.mLikeNum.setText(mDatas.get(position).likeNum+"");
+        holder.mDes.setText((TextUtils.isEmpty(mDatas.get(position).des)?"这个傻逼什么都没有留下":mDatas.get(position).des));
     }
 
     @Override
