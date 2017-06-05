@@ -1,7 +1,6 @@
 package com.wocalage.ssb.rank;
 
 import android.content.Context;
-import android.media.MediaDataSource;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,7 +21,6 @@ import com.wocalage.ssb.view.TitleBar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 
 /**
  * Created by jiaojian on 2017/5/19.
@@ -110,7 +108,7 @@ public class RankPage extends Fragment {
             UserInfo user = new UserInfo();
             user.name = "张三"+i;
             user.head = ""+i;
-            user.likeNum = (int)(Math.random()*1000);
+            user.likeTotalNum = (int)(Math.random()*1000);
             if (i % 2 == 0){
                 user.upDistance = (int)(Math.random()*100);
             }else {
@@ -126,7 +124,7 @@ public class RankPage extends Fragment {
             UserInfo user = new UserInfo();
             user.name = "李四"+i;
             user.head = ""+i;
-            user.likeNum = (int)(Math.random()*1000);
+            user.likeTotalNum = (int)(Math.random()*1000);
             if (i % 2 == 0){
                 user.upDistance = (int)(Math.random()*100);
             }else {

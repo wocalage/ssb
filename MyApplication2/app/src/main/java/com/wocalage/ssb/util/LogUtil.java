@@ -1,6 +1,8 @@
 package com.wocalage.ssb.util;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by jiaojian on 2017-5-20.
@@ -36,5 +38,9 @@ public class LogUtil {
     {
         if (isDebug)
             Log.i(object.getClass().getSimpleName(), msg);
+    }
+
+    public static void toast(Context context,String str){
+        Toast.makeText(context,str,Toast.LENGTH_SHORT).show();
     }
 }

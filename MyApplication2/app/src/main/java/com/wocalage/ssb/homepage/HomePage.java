@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +30,8 @@ public class HomePage extends Fragment {
 
     private Context mContext;
     private View me;
-    private TextView mHead,mName,mDes;
+    private TextView mHead,mName,mDes,mLikeTotalNum,mLikeWeekNum;
+    private ImageView mLikeLogo;
     private LinearLayout mFunContainer;
     private UserInfo mInfo;
 
@@ -53,9 +54,13 @@ public class HomePage extends Fragment {
         mHead = (TextView) me.findViewById(R.id.ssb_home_info_head);
         mName = (TextView) me.findViewById(R.id.ssb_home_info_name);
         mDes = (TextView) me.findViewById(R.id.ssb_home_info_description);
+        mLikeTotalNum = (TextView) me.findViewById(R.id.ssb_home_info_like_total);
+        mLikeWeekNum = (TextView) me.findViewById(R.id.ssb_home_info_like_week);
+        mLikeLogo = (ImageView) me.findViewById(R.id.ssb_home_info_like_logo);
         mFunContainer = (LinearLayout) me.findViewById(R.id.ssb_home_function_container);
 
         initView();
+        initEvent();
         initFunc();
     }
 
@@ -72,6 +77,20 @@ public class HomePage extends Fragment {
         mHead.setText((TextUtils.isEmpty(mInfo.head)?"傻":mInfo.head));
         mName.setText((TextUtils.isEmpty(mInfo.name)?mInfo.uid:mInfo.name));
         mDes.setText((TextUtils.isEmpty(mInfo.des)?"该傻逼什么都没有留下":mInfo.des));
+        mLikeTotalNum.setText("总赞:"+mInfo.likeTotalNum);
+        mLikeWeekNum.setText("最近:"+mInfo.likeWeekNum);
+        mLikeLogo.setBackground(getResources().getDrawable(R.drawable.heart_normal));
+    }
+
+    private void initEvent(){
+        mLikeLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 2017-6-5 点赞操作
+                LogUtil.toast(mContext,"点赞了!");
+                mLikeLogo.setBackground(getResources().getDrawable(R.drawable.heart_light));
+            }
+        });
     }
 
     /**

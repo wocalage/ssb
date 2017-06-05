@@ -40,7 +40,7 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RankListViewHolder holder, int position) {
+    public void onBindViewHolder(RankListViewHolder holder, final int position) {
         holder.mName.setText(mDatas.get(position).name);
         holder.mHead.setText(mDatas.get(position).head);
         holder.mDistance.setText(mDatas.get(position).upDistance+"");
@@ -51,9 +51,25 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListViewHolder> {
             holder.mUp.setVisibility(View.GONE);
             holder.mDown.setVisibility(View.VISIBLE);
         }
-        LogUtil.d(this,mDatas.get(position).likeNum+"");
-        holder.mLikeNum.setText(mDatas.get(position).likeNum+"");
+        LogUtil.d(this,mDatas.get(position).likeTotalNum +"");
+        holder.mLikeNum.setText(mDatas.get(position).likeTotalNum +"");
         holder.mDes.setText((TextUtils.isEmpty(mDatas.get(position).des)?"这个傻逼什么都没有留下":mDatas.get(position).des));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 2017-6-5 todo 应该做成对话框？还是页面？
+                LogUtil.toast(mContext,"你点击了"+mDatas.get(position).name);
+            }
+        });
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO: 2017-6-5 todo 某些操作
+                LogUtil.toast(mContext,"你长按了"+mDatas.get(position).name);
+                return true;
+            }
+        });
     }
 
     @Override
