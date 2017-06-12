@@ -1,20 +1,28 @@
 package com.wocalage.ssb.net;
 
-import com.wocalage.ssb.callback.SSBCallCack;
+import android.content.Context;
+
+import com.wocalage.ssb.callback.SSBCallBack;
+import com.wocalage.ssb.util.NetUtils;
 
 /**
  * Created by jiaojian on 2017/6/12.
  */
 
 public class NetHelper {
+
+    private static Context mContext;
     private static NetHelper mInstance = null;
+    private INetManager mNetManager;
 
-    private NetHelper(){}
+    private NetHelper() {
+    }
 
-    public static NetHelper getInstance(){
-        if (mInstance == null){
-            synchronized (NetHelper.class){
-                if (mInstance == null){
+    public static NetHelper getInstance(Context context) {
+        mContext = context;
+        if (mInstance == null) {
+            synchronized (NetHelper.class) {
+                if (mInstance == null) {
                     mInstance = new NetHelper();
                 }
             }
@@ -22,17 +30,39 @@ public class NetHelper {
         return mInstance;
     }
 
-    public void fetchPostRequest(String url, SSBCallCack<?> callCack){
-
+    private synchronized INetManager Net() {
+        if (mNetManager == null) {
+            mNetManager = new NetManagerImpl();
+        }
+        return mNetManager;
     }
 
-    public void setGetRequest(String url, SSBCallCack<?> callCack){
-
+    public void login(SSBCallBack<?> callCack, KVParam... params) {
+        if (!NetUtils.isConnected(mContext)) {
+            return;
+        }
+        Net().login(callCack, params);
     }
 
-    private boolean checkNet(){
-        // TODO: 2017/6/12 check net
-        return false;
+    public void fetchTotalRankList(SSBCallBack<?> callCack, KVParam... params) {
+        if (!NetUtils.isConnected(mContext)) {
+            return;
+        }
+        Net().fetchTotalList(callCack, params);
+    }
+
+    public void fetchWeekRankList(SSBCallBack<?> callCack, KVParam... params) {
+        if (!NetUtils.isConnected(mContext)) {
+            return;
+        }
+        Net().fetchWeekList(callCack, params);
+    }
+
+    public void fetchUserInfo(SSBCallBack<?> callCack, KVParam... params) {
+        if (!NetUtils.isConnected(mContext)) {
+            return;
+        }
+        Net().fetchUserInfo(callCack, params);
     }
 
 }

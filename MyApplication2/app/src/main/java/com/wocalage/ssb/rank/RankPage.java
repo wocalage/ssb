@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wocalage.ssb.callback.SSBCallCack;
+import com.wocalage.ssb.callback.SSBCallBack;
 import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
@@ -76,11 +76,11 @@ public class RankPage extends Fragment {
                 if (LoginInfo.getInstance(mContext).isLogined()){
                     QuestionManager.getInstance().showHelp(mContext);
                 }else{
-                    LoginManager.getInstance().login(mContext, new SSBCallCack<UserInfo>() {
+                    LoginManager.getInstance().login(mContext, new SSBCallBack<UserInfo>() {
                         @Override
                         public void callBack(int code, String msg, UserInfo data) {
                             if (mListener != null){
-                                mListener.onLogin((code == SSBCallCack.CODE_SUCCESS)?true:false);
+                                mListener.onLogin((code == SSBCallBack.CODE_SUCCESS)?true:false);
                             }
                         }
                     });

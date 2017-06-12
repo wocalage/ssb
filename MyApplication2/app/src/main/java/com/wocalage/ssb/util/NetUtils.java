@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
 
 /**
  * Created by jiaojian on 2017/6/12.
@@ -29,10 +30,8 @@ public class NetUtils {
 
         ConnectivityManager connectivity = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-
         if (null != connectivity)
         {
-
             NetworkInfo info = connectivity.getActiveNetworkInfo();
             if (null != info && info.isConnected())
             {
@@ -42,6 +41,7 @@ public class NetUtils {
                 }
             }
         }
+        LogUtil.toast(context,"请检查网络连接！！！！！!");
         return false;
     }
 

@@ -3,7 +3,7 @@ package com.wocalage.ssb.manager;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.wocalage.ssb.callback.SSBCallCack;
+import com.wocalage.ssb.callback.SSBCallBack;
 import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.entity.UserInfo;
 import com.wocalage.ssb.main.R;
@@ -27,7 +27,7 @@ public class LoginManager {
         return mLoginManager;
     }
 
-    public void login(Context context, final SSBCallCack<UserInfo> callCack) {
+    public void login(Context context, final SSBCallBack<UserInfo> callCack) {
         mContext = context;
         final LoginDialog dialog = new LoginDialog(mContext);
         dialog.setListener(new LoginDialog.LoginDialogListener() {
@@ -58,10 +58,10 @@ public class LoginManager {
                     dialog.setTips(checkPassword);
                     return;
                 }
-                goLogin(dialog.getUserName(), dialog.getPassword(), new SSBCallCack<UserInfo>() {
+                goLogin(dialog.getUserName(), dialog.getPassword(), new SSBCallBack<UserInfo>() {
                     @Override
                     public void callBack(int code, String msg, UserInfo data) {
-                        if (code == SSBCallCack.CODE_SUCCESS){
+                        if (code == SSBCallBack.CODE_SUCCESS){
                             dialog.dismiss();
                             callCack.callBack(CODE_SUCCESS,"",data);
                         }else{
@@ -94,7 +94,7 @@ public class LoginManager {
      * @param username
      * @param password
      */
-    private void goLogin(String username, String password, SSBCallCack<UserInfo> callCack) {
+    private void goLogin(String username, String password, SSBCallBack<UserInfo> callCack) {
         LogUtil.d(String.format("login----username:%s password:%s", username, password));
 
         //fetch user data
@@ -103,7 +103,7 @@ public class LoginManager {
         userInfo.name = username;
         userInfo.head = "哈";
         LoginInfo.getInstance(mContext).setMyInfo(userInfo);
-        callCack.callBack(SSBCallCack.CODE_SUCCESS, "", null);
+        callCack.callBack(SSBCallBack.CODE_SUCCESS, "", null);
     }
 
 }
