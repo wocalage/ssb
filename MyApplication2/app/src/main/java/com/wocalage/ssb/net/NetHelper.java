@@ -3,6 +3,8 @@ package com.wocalage.ssb.net;
 import android.content.Context;
 
 import com.wocalage.ssb.callback.SSBCallBack;
+import com.wocalage.ssb.net.entity.RankListData;
+import com.wocalage.ssb.net.entity.UserInfo;
 import com.wocalage.ssb.util.NetUtils;
 
 /**
@@ -30,35 +32,39 @@ public class NetHelper {
         return mInstance;
     }
 
-    private synchronized INetManager Net() {
+    private INetManager Net() {
         if (mNetManager == null) {
-            mNetManager = new NetManagerImpl();
+            synchronized (NetHelper.class){
+                if (mNetManager == null){
+                    mNetManager = new NetManagerImpl();
+                }
+            }
         }
         return mNetManager;
     }
 
-    public void login(SSBCallBack<?> callCack, KVParam... params) {
+    public void login(SSBCallBack<UserInfo> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
         }
         Net().login(callCack, params);
     }
 
-    public void fetchTotalRankList(SSBCallBack<?> callCack, KVParam... params) {
+    public void fetchTotalRankList(SSBCallBack<RankListData> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
         }
         Net().fetchTotalList(callCack, params);
     }
 
-    public void fetchWeekRankList(SSBCallBack<?> callCack, KVParam... params) {
+    public void fetchWeekRankList(SSBCallBack<RankListData> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
         }
         Net().fetchWeekList(callCack, params);
     }
 
-    public void fetchUserInfo(SSBCallBack<?> callCack, KVParam... params) {
+    public void fetchUserInfo(SSBCallBack<UserInfo> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
         }

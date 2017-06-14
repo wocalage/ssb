@@ -7,6 +7,8 @@ package com.wocalage.ssb.config;
 
 public class Config {
 
+    public static final String APP_KEY="SSB";
+
     public static final int START_LOADING_REQUEST_KEY = 101;
     public static final int START_LOADING_RESULT_KEY = 102;
     public static final String SP_FILE_NAME = "m_sp";

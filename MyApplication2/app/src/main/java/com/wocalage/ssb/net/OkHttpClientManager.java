@@ -1,4 +1,6 @@
 package com.wocalage.ssb.net;
+
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -34,22 +36,17 @@ public class OkHttpClientManager {
     private Handler mDelivery;
     private Gson mGson;
 
-    private OkHttpClientManager()
-    {
+    private OkHttpClientManager() {
         mOkHttpClient = new OkHttpClient();
         mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER));
         mDelivery = new Handler(Looper.getMainLooper());
         mGson = new Gson();
     }
 
-    public static OkHttpClientManager getInstance()
-    {
-        if (mInstance == null)
-        {
-            synchronized (OkHttpClientManager.class)
-            {
-                if (mInstance == null)
-                {
+    public static OkHttpClientManager getInstance() {
+        if (mInstance == null) {
+            synchronized (OkHttpClientManager.class) {
+                if (mInstance == null) {
                     mInstance = new OkHttpClientManager();
                 }
             }
@@ -63,8 +60,7 @@ public class OkHttpClientManager {
      * @param url
      * @return Response
      */
-    private Response _getAsyn(String url) throws IOException
-    {
+    private Response _getAsyn(String url) throws IOException {
         final Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -79,8 +75,7 @@ public class OkHttpClientManager {
      * @param url
      * @return 字符串
      */
-    private String _getAsString(String url) throws IOException
-    {
+    private String _getAsString(String url) throws IOException {
         Response execute = _getAsyn(url);
         return execute.body().string();
     }
@@ -92,8 +87,7 @@ public class OkHttpClientManager {
      * @param url
      * @param callback
      */
-    private void _getAsyn(String url, final ResultCallback callback)
-    {
+    private void _getAsyn(String url, final ResultCallback callback) {
         final Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -108,8 +102,7 @@ public class OkHttpClientManager {
      * @param params post的参数
      * @return
      */
-    private Response _post(String url, Param... params) throws IOException
-    {
+    private Response _post(String url, Param... params) throws IOException {
         Request request = buildPostRequest(url, params);
         Response response = mOkHttpClient.newCall(request).execute();
         return response;
@@ -123,8 +116,7 @@ public class OkHttpClientManager {
      * @param params post的参数
      * @return 字符串
      */
-    private String _postAsString(String url, Param... params) throws IOException
-    {
+    private String _postAsString(String url, Param... params) throws IOException {
         Response response = _post(url, params);
         return response.body().string();
     }
@@ -136,8 +128,7 @@ public class OkHttpClientManager {
      * @param callback
      * @param params
      */
-    private void _postAsyn(String url, final ResultCallback callback, Param... params)
-    {
+    private void _postAsyn(String url, final ResultCallback callback, Param... params) {
         Request request = buildPostRequest(url, params);
         deliveryResult(callback, request);
     }
@@ -149,8 +140,7 @@ public class OkHttpClientManager {
      * @param callback
      * @param params
      */
-    private void _postAsyn(String url, final ResultCallback callback, Map<String, String> params)
-    {
+    private void _postAsyn(String url, final ResultCallback callback, Map<String, String> params) {
         Param[] paramsArr = map2Params(params);
         Request request = buildPostRequest(url, paramsArr);
         deliveryResult(callback, request);
@@ -163,55 +153,43 @@ public class OkHttpClientManager {
      * @param destFileDir 本地文件存储的文件夹
      * @param callback
      */
-    private void _downloadAsyn(final String url, final String destFileDir, final ResultCallback callback)
-    {
+    private void _downloadAsyn(final String url, final String destFileDir, final ResultCallback callback) {
         final Request request = new Request.Builder()
                 .url(url)
                 .build();
         final Call call = mOkHttpClient.newCall(request);
-        call.enqueue(new Callback()
-        {
+        call.enqueue(new Callback() {
             @Override
-            public void onFailure(final Request request, final IOException e)
-            {
+            public void onFailure(final Request request, final IOException e) {
                 sendFailedStringCallback(request, e, callback);
             }
 
             @Override
-            public void onResponse(Response response)
-            {
+            public void onResponse(Response response) {
                 InputStream is = null;
                 byte[] buf = new byte[2048];
                 int len = 0;
                 FileOutputStream fos = null;
-                try
-                {
+                try {
                     is = response.body().byteStream();
                     File file = new File(destFileDir, getFileName(url));
                     fos = new FileOutputStream(file);
-                    while ((len = is.read(buf)) != -1)
-                    {
+                    while ((len = is.read(buf)) != -1) {
                         fos.write(buf, 0, len);
                     }
                     fos.flush();
                     //如果下载文件成功，第一个参数为文件的绝对路径
                     sendSuccessResultCallback(file.getAbsolutePath(), callback);
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     sendFailedStringCallback(response.request(), e, callback);
-                } finally
-                {
-                    try
-                    {
+                } finally {
+                    try {
                         if (is != null) is.close();
-                    } catch (IOException e)
-                    {
+                    } catch (IOException e) {
                     }
-                    try
-                    {
+                    try {
                         if (fos != null) fos.close();
-                    } catch (IOException e)
-                    {
+                    } catch (IOException e) {
                     }
                 }
 
@@ -219,8 +197,7 @@ public class OkHttpClientManager {
         });
     }
 
-    private String getFileName(String path)
-    {
+    private String getFileName(String path) {
         int separatorIndex = path.lastIndexOf("/");
         return (separatorIndex < 0) ? path : path.substring(separatorIndex + 1, path.length());
     }
@@ -229,90 +206,72 @@ public class OkHttpClientManager {
     //*************对外公布的方法************
 
 
-    public static Response getAsyn(String url) throws IOException
-    {
+    public static Response getAsyn(String url) throws IOException {
         return getInstance()._getAsyn(url);
     }
 
 
-    public static String getAsString(String url) throws IOException
-    {
+    public static String getAsString(String url) throws IOException {
         return getInstance()._getAsString(url);
     }
 
-    public static void getAsyn(String url, ResultCallback callback)
-    {
+    public static void getAsyn(String url, ResultCallback callback) {
         getInstance()._getAsyn(url, callback);
     }
 
-    public static Response post(String url, Param... params) throws IOException
-    {
+    public static Response post(String url, Param... params) throws IOException {
         return getInstance()._post(url, params);
     }
 
-    public static String postAsString(String url, Param... params) throws IOException
-    {
+    public static String postAsString(String url, Param... params) throws IOException {
         return getInstance()._postAsString(url, params);
     }
 
-    public static void postAsyn(String url, final ResultCallback callback, Param... params)
-    {
+    public static void postAsyn(String url, final ResultCallback callback, Param... params) {
         getInstance()._postAsyn(url, callback, params);
     }
 
 
-    public static void postAsyn(String url, final ResultCallback callback, Map<String, String> params)
-    {
+    public static void postAsyn(String url, final ResultCallback callback, Map<String, String> params) {
         getInstance()._postAsyn(url, callback, params);
     }
 
-    public static void downloadAsyn(String url, String destDir, ResultCallback callback)
-    {
+    public static void downloadAsyn(String url, String destDir, ResultCallback callback) {
         getInstance()._downloadAsyn(url, destDir, callback);
     }
 
-    private Param[] map2Params(Map<String, String> params)
-    {
+    private Param[] map2Params(Map<String, String> params) {
         if (params == null) return new Param[0];
         int size = params.size();
         Param[] res = new Param[size];
         Set<Map.Entry<String, String>> entries = params.entrySet();
         int i = 0;
-        for (Map.Entry<String, String> entry : entries)
-        {
+        for (Map.Entry<String, String> entry : entries) {
             res[i++] = new Param(entry.getKey(), entry.getValue());
         }
         return res;
     }
 
-    private void deliveryResult(final ResultCallback callback, Request request)
-    {
-        mOkHttpClient.newCall(request).enqueue(new Callback()
-        {
+    private void deliveryResult(final ResultCallback callback, Request request) {
+        mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(final Request request, final IOException e)
-            {
+            public void onFailure(final Request request, final IOException e) {
                 sendFailedStringCallback(request, e, callback);
             }
 
             @Override
-            public void onResponse(final Response response)
-            {
-                try
-                {
+            public void onResponse(final Response response) {
+                try {
                     final String string = response.body().string();
-                    if (callback.mType == String.class)
-                    {
+                    if (callback.mType == String.class) {
                         sendSuccessResultCallback(string, callback);
-                    } else
-                    {
+                    } else {
                         Object o = mGson.fromJson(string, callback.mType);
                         sendSuccessResultCallback(o, callback);
                     }
 
 
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     sendFailedStringCallback(response.request(), e, callback);
                 } catch (com.google.gson.JsonParseException e)//Json解析的错误
                 {
@@ -323,43 +282,34 @@ public class OkHttpClientManager {
         });
     }
 
-    private void sendFailedStringCallback(final Request request, final Exception e, final ResultCallback callback)
-    {
-        mDelivery.post(new Runnable()
-        {
+    private void sendFailedStringCallback(final Request request, final Exception e, final ResultCallback callback) {
+        mDelivery.post(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 if (callback != null)
                     callback.onError(request, e);
             }
         });
     }
 
-    private void sendSuccessResultCallback(final Object object, final ResultCallback callback)
-    {
-        mDelivery.post(new Runnable()
-        {
+    private void sendSuccessResultCallback(final Object object, final ResultCallback callback) {
+        mDelivery.post(new Runnable() {
             @Override
-            public void run()
-            {
-                if (callback != null)
-                {
+            public void run() {
+                if (callback != null) {
                     callback.onResponse(object);
                 }
             }
         });
+
     }
 
-    private Request buildPostRequest(String url, Param[] params)
-    {
-        if (params == null)
-        {
+    private Request buildPostRequest(String url, Param[] params) {
+        if (params == null) {
             params = new Param[0];
         }
         FormEncodingBuilder builder = new FormEncodingBuilder();
-        for (Param param : params)
-        {
+        for (Param param : params) {
             builder.add(param.key, param.value);
         }
         RequestBody requestBody = builder.build();
@@ -370,20 +320,16 @@ public class OkHttpClientManager {
     }
 
 
-    public static abstract class ResultCallback<T>
-    {
+    public static abstract class ResultCallback<T> {
         Type mType;
 
-        public ResultCallback()
-        {
+        public ResultCallback() {
             mType = getSuperclassTypeParameter(getClass());
         }
 
-        static Type getSuperclassTypeParameter(Class<?> subclass)
-        {
+        static Type getSuperclassTypeParameter(Class<?> subclass) {
             Type superclass = subclass.getGenericSuperclass();
-            if (superclass instanceof Class)
-            {
+            if (superclass instanceof Class) {
                 throw new RuntimeException("Missing type parameter.");
             }
             ParameterizedType parameterized = (ParameterizedType) superclass;
@@ -395,14 +341,11 @@ public class OkHttpClientManager {
         public abstract void onResponse(T response);
     }
 
-    public static class Param
-    {
-        public Param()
-        {
+    public static class Param {
+        public Param() {
         }
 
-        public Param(String key, String value)
-        {
+        public Param(String key, String value) {
             this.key = key;
             this.value = value;
         }

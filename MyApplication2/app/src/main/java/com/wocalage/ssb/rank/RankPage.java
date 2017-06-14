@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.wocalage.ssb.callback.SSBCallBack;
 import com.wocalage.ssb.config.LoginInfo;
-import com.wocalage.ssb.entity.UserInfo;
+import com.wocalage.ssb.net.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.manager.LoginManager;
 import com.wocalage.ssb.manager.QuestionManager;

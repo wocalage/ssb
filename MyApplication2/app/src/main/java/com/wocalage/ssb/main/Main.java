@@ -14,6 +14,7 @@ import com.wocalage.ssb.config.Config;
 import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.guide.LoadingPage;
 import com.wocalage.ssb.homepage.HomePage;
+import com.wocalage.ssb.manager.ApplicationManager;
 import com.wocalage.ssb.rank.RankPage;
 import com.wocalage.ssb.util.ActivityManager;
 
@@ -37,6 +38,7 @@ public class Main extends FragmentActivity{
     }
 
     private void init(){
+        ApplicationManager.getIntance().setContext(this);
         mPageController = new PageController(this);
         if (isFirstIn()){ //引导页面
             mPageController.showLoadPage();

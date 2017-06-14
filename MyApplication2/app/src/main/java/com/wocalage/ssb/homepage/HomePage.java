@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wocalage.ssb.config.LoginInfo;
-import com.wocalage.ssb.entity.UserInfo;
+import com.wocalage.ssb.net.entity.UserInfo;
 import com.wocalage.ssb.homepage.function.Setting;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.util.LogUtil;

@@ -1,11 +1,15 @@
 package com.wocalage.ssb.manager;
 
 import android.content.Context;
+import android.hardware.usb.UsbRequest;
 import android.text.TextUtils;
 
 import com.wocalage.ssb.callback.SSBCallBack;
 import com.wocalage.ssb.config.LoginInfo;
-import com.wocalage.ssb.entity.UserInfo;
+import com.wocalage.ssb.net.KVParam;
+import com.wocalage.ssb.net.NetHelper;
+import com.wocalage.ssb.net.entity.RankListData;
+import com.wocalage.ssb.net.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.util.LogUtil;
 import com.wocalage.ssb.dialog.LoginDialog;
@@ -96,6 +100,16 @@ public class LoginManager {
      */
     private void goLogin(String username, String password, SSBCallBack<UserInfo> callCack) {
         LogUtil.d(String.format("login----username:%s password:%s", username, password));
+
+        KVParam kv1 = new KVParam("username",username);
+        KVParam kv2 = new KVParam("password",password);
+        NetHelper.getInstance(mContext).login(new SSBCallBack<UserInfo>() {
+            @Override
+            public void callBack(int code, String msg, UserInfo data) {
+
+            }
+        },kv1,kv2);
+
 
         //fetch user data
         UserInfo userInfo = new UserInfo();

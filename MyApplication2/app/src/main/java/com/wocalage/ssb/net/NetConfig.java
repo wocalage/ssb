@@ -5,9 +5,9 @@ package com.wocalage.ssb.net;
  */
 
 public class NetConfig {
-    public static final String ROOT_URL = "";
-    public static final String PROJECT_NAME = "";
-    public static final String LOGIN_URL = ROOT_URL + PROJECT_NAME + "";
+    public static final String ROOT_URL = "wocalage.com";
+    public static final String PROJECT_NAME = "/ssb";
+    public static final String LOGIN_URL = ROOT_URL + PROJECT_NAME + "/login";
     public static final String TOTAL_RANK_URL = ROOT_URL + PROJECT_NAME + "";
     public static final String WEEK_RANK_URL = ROOT_URL + PROJECT_NAME + "";
     public static final String USERINFO_URL = ROOT_URL + PROJECT_NAME + "";

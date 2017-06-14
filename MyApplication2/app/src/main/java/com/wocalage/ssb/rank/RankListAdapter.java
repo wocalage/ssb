@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wocalage.ssb.entity.UserInfo;
+import com.wocalage.ssb.net.entity.UserInfo;
 import com.wocalage.ssb.main.R;
 import com.wocalage.ssb.util.LogUtil;
 

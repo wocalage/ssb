@@ -3,8 +3,7 @@ package com.wocalage.ssb.config;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.wocalage.ssb.entity.UserInfo;
-import com.wocalage.ssb.util.LogUtil;
+import com.wocalage.ssb.net.entity.UserInfo;
 import com.wocalage.ssb.util.SPUtils;
 
 /**
