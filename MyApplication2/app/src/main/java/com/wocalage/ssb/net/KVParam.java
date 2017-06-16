@@ -1,7 +1,8 @@
 package com.wocalage.ssb.net;
 
 /**
- * Created by jiaojian on 2017-6-12.
+ * Created by jiaojian on 2017-6-12
+ * the kv param for the net
  */
 
 public class KVParam {

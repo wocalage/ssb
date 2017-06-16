@@ -5,6 +5,7 @@ import com.wocalage.ssb.util.LogUtil;
 
 /**
  * Created by jiaojian on 2017/6/12.
+ * the jsonHelper
  */
 
 public class JsonHelper {

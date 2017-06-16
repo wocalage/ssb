@@ -9,6 +9,7 @@ import com.wocalage.ssb.util.NetUtils;
 
 /**
  * Created by jiaojian on 2017/6/12.
+ * the real netManager for others to invoke
  */
 
 public class NetHelper {
@@ -43,6 +44,11 @@ public class NetHelper {
         return mNetManager;
     }
 
+    /**
+     * 用户登录
+     * @param callCack
+     * @param params 需要传入用户名和密码，kv形式
+     */
     public void login(SSBCallBack<UserInfo> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
@@ -50,6 +56,11 @@ public class NetHelper {
         Net().login(callCack, params);
     }
 
+    /**
+     * 获取总榜
+     * @param callCack
+     * @param params 需要传入过滤信息，kv形式
+     */
     public void fetchTotalRankList(SSBCallBack<RankListData> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
@@ -57,6 +68,11 @@ public class NetHelper {
         Net().fetchTotalList(callCack, params);
     }
 
+    /**
+     * 获取周榜
+     * @param callCack
+     * @param params 需要传入过滤信息，kv形式
+     */
     public void fetchWeekRankList(SSBCallBack<RankListData> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;
@@ -64,6 +80,11 @@ public class NetHelper {
         Net().fetchWeekList(callCack, params);
     }
 
+    /**
+     * 获取用户信息
+     * @param callCack
+     * @param params 需要传入用户id，kv形式
+     */
     public void fetchUserInfo(SSBCallBack<UserInfo> callCack, KVParam... params) {
         if (!NetUtils.isConnected(mContext)) {
             return;

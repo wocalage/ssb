@@ -2,6 +2,7 @@ package com.wocalage.ssb.net;
 
 /**
  * Created by jiaojian on 2017/6/12.
+ * the config about url
  */
 
 public class NetConfig {

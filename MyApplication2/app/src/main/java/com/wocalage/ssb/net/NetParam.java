@@ -1,15 +1,12 @@
 package com.wocalage.ssb.net;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-
 import com.wocalage.ssb.config.Config;
-import com.wocalage.ssb.config.LoginInfo;
 import com.wocalage.ssb.manager.ApplicationManager;
 import com.wocalage.ssb.util.MD5Utils;
 
 /**
  * Created by jiaojian on 2017/6/14.
+ * to add some param about client
  */
 
 public class NetParam {
