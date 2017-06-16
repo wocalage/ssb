@@ -26,15 +26,12 @@ public class NetParam {
         sign = MD5Utils.MD5(appKey+versionId+time);
     }
 
-    public String getParamUrl(){
-        StringBuffer sb = new StringBuffer();
-        sb.append("appKey="+appKey);
-        sb.append("&");
-        sb.append("version="+versionId);
-        sb.append("&");
-        sb.append("time="+time);
-        sb.append("&");
-        sb.append("sign="+sign);
-        return sb.toString();
+    public KVParam[] getAttachKVParam(){
+        KVParam[] kvParams = new KVParam[4];
+        kvParams[0] = new KVParam("appKey",appKey);
+        kvParams[1] = new KVParam("version",versionId);
+        kvParams[2] = new KVParam("time",time+"");
+        kvParams[3] = new KVParam("sign",sign);
+        return kvParams;
     }
 }

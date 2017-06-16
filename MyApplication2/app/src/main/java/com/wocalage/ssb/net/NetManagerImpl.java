@@ -91,16 +91,17 @@ public class NetManagerImpl implements INetManager {
      * @return
      */
     private Request buildPostRequest(String url, KVParam[] params) {
-        if (params == null) {
-            params = new KVParam[0];
-        }
+        KVParam[] kvParams = new KVParam[params.length+getAttachParam().length-1];
+        System.arraycopy(getAttachParam(),0,kvParams,0,getAttachParam().length);
+        System.arraycopy(params,0,kvParams,(getAttachParam().length-1),params.length);
+
         FormEncodingBuilder builder = new FormEncodingBuilder();
-        for (KVParam param : params) {
+        for (KVParam param : kvParams) {
             builder.add(param.key, param.value);
         }
         RequestBody requestBody = builder.build();
         return new Request.Builder()
-                .url(buildUrl(url))
+                .url(url)
                 .post(requestBody)
                 .build();
     }
@@ -113,9 +114,13 @@ public class NetManagerImpl implements INetManager {
      * @return
      */
     private Request buildGetRequest(String url, KVParam[] params) {
+        KVParam[] kvParams = new KVParam[params.length+getAttachParam().length-1];
+        System.arraycopy(getAttachParam(),0,kvParams,0,getAttachParam().length);
+        System.arraycopy(params,0,kvParams,(getAttachParam().length-1),params.length);
+
         StringBuilder tempParams = new StringBuilder();
         try {
-            for (KVParam param : params) {
+            for (KVParam param : kvParams) {
                 tempParams.append("&");
                 tempParams.append(String.format("%s=%s", param.key, URLEncoder.encode(param.value, "utf-8")));
             }
@@ -130,14 +135,10 @@ public class NetManagerImpl implements INetManager {
 
     /**
      * 构建请求附带参数,time,version等
-     * @param hostUrl
      * @return
      */
-    private String buildUrl(String hostUrl) {
-        StringBuffer sb = new StringBuffer(hostUrl);
-        sb.append("?");
-        sb.append(new NetParam().getParamUrl());
-        return sb.toString();
+    private KVParam[] getAttachParam() {
+        return new NetParam().getAttachKVParam();
     }
 
 }
