@@ -2,6 +2,7 @@ package com.wocalage.ssb.net.entity;
 
 /**
  * Created by jiaojian on 2017/5/21.
+ * UserData
  */
 
 public class UserInfo {

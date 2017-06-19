@@ -15,10 +15,10 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
             android:background="@drawable/ssb_bg_oval"
-            android:text="ss"
-            android:textSize="16sp"
             android:gravity="center"
-            android:textColor="@color/app_theme_color"/>
+            android:text="ss"
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/ssb_rank_list_item_username"
@@ -26,85 +26,88 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="7dp"
-            android:textSize="16sp"
-            android:gravity="left"
-            android:text="ss"
             android:layout_toRightOf="@id/ssb_rank_list_item_head"
+            android:gravity="left"
             android:maxLines="1"
-            android:textColor="@color/app_theme_color" />
+            android:text="ss"
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp" />
+
         <TextView
             android:id="@+id/ssb_rank_list_item_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ss"
-            android:textColor="@color/app_theme_color"
-            android:layout_toRightOf="@id/ssb_rank_list_item_head"
-            android:layout_marginLeft="20dp"
-            android:textSize="12sp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="7dp"
-            android:gravity="left"/>
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/ssb_rank_list_item_head"
+            android:gravity="left"
+            android:text="ss"
+            android:textColor="@color/app_theme_color"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/ssb_rank_list_item_level_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:textColor="@color/app_theme_color"
-            android:textSize="16sp"/>
-        <ImageView
+            android:textSize="16sp" />
+
+        <TextView
             android:id="@+id/ssb_rank_list_item_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:background="@drawable/heart_light"
-            />
+            android:text="8=D"
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/ssb_rank_list_item_likenum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:gravity="right"
-            android:layout_toLeftOf="@id/ssb_rank_list_item_like"
-            android:textColor="@color/app_theme_color"
             android:layout_centerVertical="true"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/ssb_rank_list_item_like"
+            android:gravity="right"
+            android:textColor="@color/app_theme_color"
+            android:textSize="16sp" />
+
         <RelativeLayout
             android:layout_width="30dp"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/ssb_rank_list_item_up"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/ssb_bg_triangle_up"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/ssb_rank_list_item_down"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/ssb_bg_triangle_down"
                 android:layout_marginTop="15dp"
-                android:visibility="gone"
-                />
+                android:background="@drawable/ssb_bg_triangle_down"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/ssb_rank_list_item_upDistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/app_theme_color"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
-                android:textSize="12sp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textColor="@color/app_theme_color"
+                android:textSize="12sp" />
         </RelativeLayout>
     </RelativeLayout>
 

@@ -31,7 +31,7 @@ public class HomePage extends Fragment {
     private Context mContext;
     private View me;
     private TextView mHead,mName,mDes,mLikeTotalNum,mLikeWeekNum;
-    private ImageView mLikeLogo;
+    private TextView mLikeLogo;
     private LinearLayout mFunContainer;
     private UserInfo mInfo;
 
@@ -56,7 +56,7 @@ public class HomePage extends Fragment {
         mDes = (TextView) me.findViewById(R.id.ssb_home_info_description);
         mLikeTotalNum = (TextView) me.findViewById(R.id.ssb_home_info_like_total);
         mLikeWeekNum = (TextView) me.findViewById(R.id.ssb_home_info_like_week);
-        mLikeLogo = (ImageView) me.findViewById(R.id.ssb_home_info_like_logo);
+        mLikeLogo = (TextView) me.findViewById(R.id.ssb_home_info_like_logo);
         mFunContainer = (LinearLayout) me.findViewById(R.id.ssb_home_function_container);
 
         initView();
@@ -83,12 +83,12 @@ public class HomePage extends Fragment {
     }
 
     private void initEvent(){
+        //// TODO: 2017/6/19 如果这个只是本人的homepage？是不是就不可以点赞了？但是可以查看！
         mLikeLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO: 2017-6-5 点赞操作
                 LogUtil.toast(mContext,"点赞了!");
-                mLikeLogo.setBackground(getResources().getDrawable(R.drawable.heart_light));
             }
         });
     }

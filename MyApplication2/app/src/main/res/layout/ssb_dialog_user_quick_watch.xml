@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:background="@drawable/ssb_bg_rectangle"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/ssb_quick_watch_title"
+            style="@style/Text16sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ss" />
+
+        <TextView
+            android:id="@+id/ssb_quick_watch_close"
+            style="@style/Text16sp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ssb_bg_rectangle"
+            android:gravity="center"
+            android:text="X" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginRight="30dp"
+        android:background="@color/app_theme_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/ssb_quick_watch_head"
+            style="@style/Text20sp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ssb_bg_oval"
+            android:gravity="center"
+            android:text="s" />
+
+        <TextView
+            android:id="@+id/ssb_quick_watch_name"
+            style="@style/Text16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/ssb_quick_watch_head"
+            android:text="ss" />
+
+        <TextView
+            android:id="@+id/ssb_quick_watch_des"
+            style="@style/Text16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ssb_quick_watch_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/ssb_quick_watch_head"
+            android:text="ss" />
+
+        <RelativeLayout
+            android:id="@+id/ssb_quick_watch_like_layout"
+            android:layout_below="@id/ssb_quick_watch_head"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/ssb_quick_watch_total_liked"
+                style="@style/Text16sp"
+                android:layout_marginLeft="30dp"
+                android:text="ss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/ssb_quick_watch_week_liked"
+                style="@style/Text16sp"
+                android:layout_marginLeft="30dp"
+                android:text="ss"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/ssb_quick_watch_total_liked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/ssb_quick_watch_like"
+            android:text="8==D"
+            style="@style/Text16sp"
+            android:gravity="center"
+            android:layout_below="@id/ssb_quick_watch_like_layout"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ssb_bg_rectangle"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/app_theme_color" />
+    </RelativeLayout>
+
+</LinearLayout>

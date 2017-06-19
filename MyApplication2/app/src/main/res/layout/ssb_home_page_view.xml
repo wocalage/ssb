@@ -31,11 +31,13 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:gravity="right"/>
-        <ImageView
+        <TextView
             android:id="@+id/ssb_home_info_like_logo"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/heart_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8==D"
+            android:textSize="16sp"
+            android:textColor="@color/app_theme_color"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
