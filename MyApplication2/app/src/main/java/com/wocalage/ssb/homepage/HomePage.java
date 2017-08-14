@@ -79,7 +79,7 @@ public class HomePage extends Fragment {
         mDes.setText((TextUtils.isEmpty(mInfo.des)?"该傻逼什么都没有留下":mInfo.des));
         mLikeTotalNum.setText("总赞:"+mInfo.likeTotalNum);
         mLikeWeekNum.setText("最近:"+mInfo.likeWeekNum);
-        mLikeLogo.setBackground(getResources().getDrawable(R.drawable.heart_normal));
+        //mLikeLogo.setBackground(getResources().getDrawable(R.drawable.heart_normal));
     }
 
     private void initEvent(){
